@@ -1,13 +1,20 @@
 # Student Research Project
 **Probabilistic Forecasting of Hierarchical Time Series with Graph Neural Networks** Under supervision of *Vijaya Krishna Yalavarthi*
 
+<h2>To-do</h3>
+<ul>
+<li>~~try on other datasets as well.~~</li>
+<li>~~Returning to get closer to baselines~~</li>
+<li>~~Some issues persist with embed dimensions~~</li>
+<li>data seasonality drastically changed due to covid( new or older data to be considered w/o anomalies)</li>
+<li>Lr find seems to give different results #</li>
 
+</ul>
+ 
+ 
 
- Returning to get closer to baselines
- Some issues persist with embed dimensions
- data seasonality drastically changed due to covid( new or older data to be considered w/o anomalies)
- Lr find seems to give different results #
- try on other datasets as well.
+ 
+ 
 
 <h3>Team Members</h3>
 <ul>

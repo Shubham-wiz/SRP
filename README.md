@@ -3,9 +3,9 @@
 
 <h2>To-do</h3>
 <ul>
-<li>~~try on other datasets as well.~~</li>
-<li>~~Returning to get closer to baselines~~</li>
-<li>~~Some issues persist with embed dimensions~~</li>
+<li>~~try on other datasets as well.</li>
+<li>~~Returning to get closer to baselines</li>
+<li>~~Some issues persist with embed dimensions</li>
 <li>data seasonality drastically changed due to covid( new or older data to be considered w/o anomalies)</li>
 <li>Lr find seems to give different results #</li>
 

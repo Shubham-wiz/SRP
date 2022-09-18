@@ -3,7 +3,8 @@
 
 <h2>To-do</h3>
 <ul>
-<li>< s>try on other datasets as well.</li>
+ <s>
+<li>try on other datasets as well.</li>
 <li>Returning to get closer to baselines</li>
 <li>Some issues persist with embed dimensions</li></s>
 <li>data seasonality drastically changed due to covid( new or older data to be considered w/o anomalies)</li>

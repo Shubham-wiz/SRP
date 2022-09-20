@@ -6,7 +6,8 @@
  <s>
 <li>try on other datasets as well.</li>
 <li>Returning to get closer to baselines</li>
-<li>Some issues persist with embed dimensions</li></s>
+<li>Some issues persist with embed dimensions</li>
+<li>tested on 3 more datasets different from baselines</li></s>
 <li>data seasonality drastically changed due to covid( new or older data to be considered w/o anomalies)</li>
 <li>Lr find seems to give different results #</li>
 </ul>

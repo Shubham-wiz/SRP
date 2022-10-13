@@ -12,7 +12,7 @@ class model(nn.Module):
         for i in range(1, self.num_lstms):
             lstms.append(nn.LSTMCell(self.lstm_out, self.lstm_out))
         self.lstms = nn.ModuleList(lstms)
-        # μ and σ  distibution -> next point for every t_i. 
+        # μ and σ  distibution -> next point for every t_i.prediction length is from output dimensions
         self.mean = nn.Linear(self.lstm_out, output_dim)
         self.std = nn.Linear(self.lstm_out, output_dim)
 
@@ -25,16 +25,20 @@ class model(nn.Module):
         c_t = []
         cond_ctx_len = input.size(1)
         pred_ctx_len = future
+        #for covariartes concat input and covariates
         if covariates.shape[2] != 0:
             input = torch.cat((input, covariates[:, 0:cond_ctx_len, :]), 2)
         for i in range(0, self.num_lstms):
             h_t.append(torch.zeros(input.size(0), self.lstm_out, dtype=torch.float).to(dev))
             c_t.append(torch.zeros(input.size(0), self.lstm_out, dtype=torch.float).to(dev))
-
+        '''
+         h(hidden state),c(cell state)-> output of Lstm cell, h(i)-> passed to lstm(i+1) cell, 
+         h(i) and c(i) are recurrent for lstm cell(i+1) 
+         and the output from previous cell '''
         for i, input_t in enumerate(input.chunk(input.size(1), dim=1)):
-            h_t[0], c_t[0] = self.lstms[0](input_t.squeeze(1), (h_t[0], c_t[0]))
+            h_t[0], c_t[0] = self.lstms[0](input_t.squeeze(1), (h_t[0], c_t[0])) #first cell ->concat of input and covariates, recurrent input 
             for n in range(1, self.num_lstms):
-                h_t[n], c_t[n] = self.lstms[n](h_t[n - 1], (h_t[n], c_t[n]))
+                h_t[n], c_t[n] = self.lstms[n](h_t[n - 1], (h_t[n], c_t[n]))#susquent cells-> prev. output from stack, recurrent input
             mean = self.mean(h_t[n])
             std = self.std(h_t[n])
             means = torch.cat((means, mean.unsqueeze(1)), 1)
@@ -65,7 +69,7 @@ class model(nn.Module):
         softplus = torch.where(softplus==float('inf'), x, softplus)
         return softplus
 
-    def NLL(self, outputs, truth):
+    def NLL(self, outputs, truth):#negative log liklihood
         mean, std = torch.split(outputs, 1, dim=3)
         mean = mean.squeeze(3)
         std = std.squeeze(3)

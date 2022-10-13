@@ -51,7 +51,7 @@ class model(nn.Module):
                 h_t[n], c_t[n] = self.lstms[n](h_t[n - 1], (h_t[n], c_t[n]))
             mean = self.mean(h_t[n])
             std = self.std(h_t[n])
-            std = self.softplus(std) 
+            std = self.softplus(std) # avoid infinties
             means = torch.cat((means, mean.unsqueeze(1)), 1)
             stds = torch.cat((stds, std.unsqueeze(1)), 1)
         means = means.unsqueeze(-1)

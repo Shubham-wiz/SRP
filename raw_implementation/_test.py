@@ -67,7 +67,11 @@ num_covariates = params['num_covariates']
 num_time_idx = params['num_time_idx']
 num_targets = params['num_targets']
 input_dim = num_time_idx + num_targets + num_covariates
-
+'''
+Size of the entire context window utilized during training
+can be divided into 2 sections - first: conditioning context with input data points and network predictions conditioned on real data; 
+and other one is  prediction context, where network predictions are conditioned on network output from the ealrier steps.
+'''
 ctx_win_len = params['ctx_win_len']
 cond_win_len = params['cond_win_len']
 pred_win_len = ctx_win_len - cond_win_len - 1
@@ -86,20 +90,25 @@ num_epochs = params['num_epochs']
 losses = []
 batch_num = 1
 utils = TSUtils(device, params)
-
+# Trainin loop
 def train():
     for epoch in range(0, num_epochs):
         batch_num = 0
         for i, batch in enumerate(train_dataloader):
             if batch_num > max_batches_per_epoch:
-                break
-            input, target, covariates = utils.split_batch(batch)
+                break    
+            input, target, covariates = utils.split_batch(batch) #splitting batches : issue with sequence
+            #conditioning window input,Prediction window , model op conditioned on previous values
+            # model output for the previous step
             input_cond = input[:, 0:cond_win_len, :]
             input_cond, covariates = utils.scale(input_cond, covariates)
             optimizer.zero_grad()
+            #forward pass
             out = model(input_cond, covariates, future=pred_win_len)
             out = utils.invert_scale(out, probabalistic=True)
+            #rescale
             loss = model.NLL(out, target)
+            #loss calc
             loss.backward()
             scheduler.step()
             optimizer.step()
@@ -141,17 +150,19 @@ def predict(model, num_targets=1):
             plt.ylabel('y')
             plt.xticks()
             plt.yticks()
+            # target series red,condioning window prediction blue,prediciton window prediciton dashesd cyan
             plt.plot(np.arange(len(target)), target, 'r', linewidth=2.0)
             plt.plot(np.arange(cond_win_len), pred[0:cond_win_len], 'b', linewidth=2.0)
             plt.plot(np.arange(cond_win_len, cond_win_len + pred_win_len), pred[cond_win_len:], 'g' + ':',
                      linewidth=2.0)
+            # quantile values shades 
             plt.fill_between(np.arange(len(target)), pred - std, pred + std, color='cyan', alpha=0.5)
             plt.fill_between(np.arange(len(target)), pred - 2 * std, pred + 2 * std, color='cyan', alpha=0.2)
             plt.savefig(j)
 
 model, losses = train()
 
-data='elec'
+data='elec'# electricity dataset
 date_=str(now).replace(" ", "")
 model_save_ = f"{data}_epochs{params['num_epochs']}_{ date_ }"
 torch.save(model.state_dict(), model_save_+".pth")

@@ -1,16 +1,18 @@
 import torch 
 import torch.nn as nn
-
+#  probabalistic model and likelihood function
 class model(nn.Module):
     def __init__(self, num_lstms, input_dim, output_dim=1, hidden_dim=64):
         super(model, self).__init__()
         self.lstm_out = hidden_dim
         self.num_lstms = num_lstms
         lstms = []
+        
         lstms.append(nn.LSTMCell(input_dim, self.lstm_out))
         for i in range(1, self.num_lstms):
             lstms.append(nn.LSTMCell(self.lstm_out, self.lstm_out))
         self.lstms = nn.ModuleList(lstms)
+        # μ and σ  distibution -> next point for every t_i. 
         self.mean = nn.Linear(self.lstm_out, output_dim)
         self.std = nn.Linear(self.lstm_out, output_dim)
 

@@ -1,6 +1,6 @@
 import torch 
 import torch.nn as nn
-#  probabalistic model and likelihood function
+#  probabalistic model with likelihood function
 class model(nn.Module):
     def __init__(self, num_lstms, input_dim, output_dim=1, hidden_dim=64):
         super(model, self).__init__()

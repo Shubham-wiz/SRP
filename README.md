@@ -9,8 +9,8 @@
 <li>Some issues persist with embed dimensions</li>
 <li>tested on 3 more datasets different from baselines</li>
 <li>data seasonality drastically changed due to covid( new or older data to be considered w/o anomalies)</li>
-<li>Lr find seems to give different results #</li></s>
-<li>NLL updation #</li>
+<li>Lr find seems to give different results #</li>
+<li>NLL updation #</li></s>
 </ul>
  
  

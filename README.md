@@ -28,3 +28,8 @@
 </ul>
 
 Overleaf Progress:https://www.overleaf.com/read/jqbbwsbzjvgk
+
+<h3>Code Understanding:</h3>
+ <b>Raw Impelementation:</b>
+
+

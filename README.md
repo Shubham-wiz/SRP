@@ -30,7 +30,7 @@
 Overleaf Progress:https://www.overleaf.com/read/jqbbwsbzjvgk
 
 <h3>Code Understanding:</h3>
- As of now a single ipynb is created again for every updation \n
+ <p>As of now a single ipynb is created again for every updation </p>
  <b>Raw Impelementation:</b>
  
 

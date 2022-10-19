@@ -31,7 +31,7 @@ Model implemented from the scratch using pytorch , main changes are held in this
 - parameter tuning
 - organize the code
 - weighted loss testing
-# Test_Files
+# Test_Files: These contain all the earlier defined functions so as to track the progress
 - **base_single_run.ipynb** :First test run with updated loss with generated dataset
 - **NLL_base_single_generalised.ipynb**  : Second test run with updated loss with generated dataset with a more generalised approach
 - **NL+meanbase_single_run_sigma_2_lvl_hiererchy.ipynb** : Not pure NLL, Bottom level Loss with NLL, Hierarchy simple bottom prediction aggregation - truth values 

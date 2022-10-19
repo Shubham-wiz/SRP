@@ -9,9 +9,9 @@
 
     Deepalakshmi Murugesu -313265
     Najeebullah Hussaini  -310850
-    Shubham Dwivedi 			-311620
-    Syed Hammad Jaffery 	-312441
-    Usama Abdul samad 		-311458
+    Shubham Dwivedi -311620
+    Syed Hammad Jaffery -312441
+    Usama Abdul samad -311458
 
 
 #### Updations:

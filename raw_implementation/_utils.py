@@ -1,5 +1,9 @@
 import torch
 import numpy as np
+ """
+ utility functions for  calculation of  error metrics and spliting batches while scaling the batch data
+ """
+
 class utils:
     def __init__(self, dev,_params):
         self.min = 0
@@ -9,16 +13,26 @@ class utils:
         self.dev = dev
         self._params = _params
 
-    def NRMSE(self, input, target):
+    def NRMSE(self, input, target):#Normalized Root Mean Square Error
         return np.sqrt(torch.nn.functional.mse_loss(input, target).item()) / torch.mean(torch.abs(target))
 
-    def NormDeviation(self, input, target):
+    def NormDeviation(self, input, target):#Normalized Deviation
         return torch.mean(torch.abs(input - target)) / torch.mean(torch.abs(target))
 
-    def MAE(self, input, target):
+    def MAE(self, input, target):#Mean Absolute Error
         return torch.mean(torch.abs(input - target))
 
     def split_batch(self, batch):
+        """
+        This was basically done with more of a dependent dataset, right now we are not working with covariates ,
+        so each series is considered independent.
+        -> functions inputs a batch and divides into input, target and covariates. 
+           batch dim-> B x T x D
+           D can be defined as :| num_time_indx | num_target_series | num_covariates |
+           -  num_time_indx cols: consist of relative and absolute time indices.   
+           -  num_target_series cols: number of target series for which we want to perform forecasting
+           -  remaining cols: covariates that can be  seasonal (time) covariates (hour, min)
+        """
         num_time_idx = self._params['num_time_idx']
         num_targets = self._params['num_targets']
         total_num_targets = self._params['total_num_targets']
@@ -57,6 +71,9 @@ class utils:
             range[range < 1e-5] = 1e-5
             covariates = covariates / range
         return input, covariates
+"""
+Inverts the scale applied to the target time series for calculation of  the loss functions on the un-scaled time series.  
+"""
 
     def invert_scale(self, input, probabalistic=False):
         if probabalistic == False:

@@ -111,9 +111,9 @@
 
 
 ##  Basic Arch:
-
+<center>
 ![](https://mermaid.ink/img/pako:eNqtU01PwzAM_StRzhtSOfbAATiAtO2yCg4URV6TrdaSpsrH-Cr_nbhFtAMmLuQSO3nPjp_jN15ZqXjOy2ar7VNVgwusuCwbxnzc7By0Nbtt2hjohDGJTlUBbfOJmaDE4NMaLcweVqxAo5hXDpVnd6Bj2nL2KrJZmGdntF5FQ_bjyNtmD0t2ZQ_gEIIaWc_E6jnPwszC4yTVkHjwVSO_vW4doNorKRY-mJHzsxxai3WxzObzi67OROjIO08e6-rzT1esjgrts33LJ9EH3ESKLVpwYPxfWe-FiaP3JDzuDByX8xXd220QrY7_EXSMulI7CHhQQtud0LjXWFsr_0qxAU8M70UFuooaCEHq3aBy4KoaQbNFumeT-66wAXRPO3rNsJElGGk-bVvfkdSBX6X9eUhw0olkYsSbivY7fBm7kxp8sfu4JONpbOGiEof-zyb0KRifcaOcAZRp_N6o5pKHWhlV8jyZEty-TGP5nnAQg12_NBXPQwo947GVaSyuEVLjDM-3oH06VRKDdcthnvuxfv8AcyBF9g?type=png)
-
+<\center>
 
 
 

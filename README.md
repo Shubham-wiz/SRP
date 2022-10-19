@@ -67,35 +67,35 @@
 
 ####  Training Loop: Basic Structure
            For every epoch in Total of epochs:
-						Split batches into input and target, (covariates if not 0)
-						Take values <-Conditioning window input,Prediction window , 
-						Condition Model output on previous values from previos steps
-						Scale input if needed
-						Optimizer.zeroGrad-> restarts looping without losses from the last step(initiall tensor of zeros)
-						Output<-model
-						Invert Scale(Output) if required
-						Calculate loss->NLL
-						Backpropogate loss
+			Split batches into input and target, (covariates if not 0)
+			Take values <-Conditioning window input,Prediction window , 
+			Condition Model output on previous values from previos steps
+			Scale input if needed
+			Optimizer.zeroGrad-> restarts looping without losses from the last step(initiall tensor of zeros)
+			Output<-model
+			Invert Scale(Output) if required
+			Calculate loss->NLL
+			Backpropogate loss
   
   ####  Model:  Structure->Probabalistic model with likelihood function
            Model<-Number of Lstm units,Input Dimension, Output Dimensions, hidden Dimensions
 	           _init_ everything  using recieved parameters
-				      define Stacked lstm Structure
-					  μ and σ distibution -> next point for every t_i.prediction length is from output dimensions     
+			      define Stacked lstm Structure
+				  μ and σ distibution -> next point for every t_i.prediction length is from output dimensions     
 	       Forward<-Input ,covariates (if required)
 	       basic idea : h(hidden state),c(cell state)-> output of Lstm cell, h(i)-> passed to lstm(i+1) cell,h(i) and c(i) are recurrent for lstm cell(i+1)
 	       define cell-state(c), hidden-state(h)
 	       concat covariates and Inputs
-			looping though input chunks: 
-					 where first cell ->concat of input and covariates, recurrent input
-					 looping again through all lstm units:
-							 susquent cells-> prev. output from stack, recurrent input
+		     looping though input chunks: 
+				 where first cell ->concat of input and covariates, recurrent input
+				 looping again through all lstm units:
+					 susquent cells-> prev. output from stack, recurrent input
 	       obtain output according to future length given to model
 	       obtain μ and σ <-outputs (use softplus if infinites hit) 
            
   ####  Loss: Structure-> Calculates Negative log liklihood for all hierarchies based on bottom forcasts only     
-			Loss<-Output,Ground Truth,Hierarchy data
-			μ and σ<-from output
+	Loss<-Output,Ground Truth,Hierarchy data
+	μ and σ<-from output
             calculate loss for base forcast using Negative liklihood formula
             looping through hierarchies:
 	            calculate Negative liklihood loss between truth values and related bottom values

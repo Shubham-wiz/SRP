@@ -17,7 +17,6 @@ from itertools import product
 
 # Third-party imports
 import mxnet as mx
-from mxnet import np, npx
 
 import numpy as np
 
@@ -518,7 +517,6 @@ class DeepHierNetwork(DeepVARNetwork):
             # print('bottom samples : ', bottom_samples.shape, type(bottom_samples))
             # print('AG: ', AG.shape, type(AG))
             Hierarchy_SAMPLES= mx.ndarray.dot(bottom_samples,AG)
-            # print('fuck yess')
             total_samples=mx.ndarray.concatenate([Hierarchy_SAMPLES,bottom_samples],axis=2)
             samples=total_samples
             # npx.reset_np()

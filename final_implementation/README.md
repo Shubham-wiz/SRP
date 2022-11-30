@@ -2,7 +2,7 @@
 This is a fork of [gluonts-hierarchical-ICML-2021](https://github.com/rshyamsundar/gluonts-hierarchical-ICML-2021) 
 
 ## Setup
-Download this code.
+Download this code and rename the directory as 'gluonts-hierarchical-ICML-2021' then run following commands.
 ```
 pip install --upgrade mxnet
 cd gluonts-hierarchical-ICML-2021

@@ -170,11 +170,9 @@ Results:
    <td>0.1045+/-0.0151</td>
    <td> 0.1418+/-0.0249</td>
    <td>0.1289+/-010171</td>
-   <td>&quot;0.1614(ETS-ERM)</td>
+   <td>0.1614(ETS-ERM)</td>
   </tr>
-  <tr>
-   <td>0.1614 (ETS-ERM)&quot;</td>
-  </tr>
+
   <tr>
    <td></td>
    <td>3</td>

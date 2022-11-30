@@ -1,0 +1,502 @@
+/home/jaffery/gluonts-hierarchical-ICML-2021/src/gluonts/json.py:45: UserWarning: Using `json`-module for json-handling. Consider installing one of `orjson`, `ujson` to speed up serialization and deserialization.
+  warnings.warn(
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:11<02:07,  2.77s/it, epoch=1/10, avg_epoch_loss=824] 18%|█▊        | 9/50 [00:23<01:46,  2.60s/it, epoch=1/10, avg_epoch_loss=799] 28%|██▊       | 14/50 [00:36<01:33,  2.59s/it, epoch=1/10, avg_epoch_loss=782] 36%|███▌      | 18/50 [00:46<01:22,  2.58s/it, epoch=1/10, avg_epoch_loss=769] 46%|████▌     | 23/50 [00:59<01:08,  2.54s/it, epoch=1/10, avg_epoch_loss=760] 46%|████▌     | 23/50 [01:10<01:08,  2.54s/it, epoch=1/10, avg_epoch_loss=754] 56%|█████▌    | 28/50 [01:11<00:55,  2.53s/it, epoch=1/10, avg_epoch_loss=753] 66%|██████▌   | 33/50 [01:24<00:42,  2.51s/it, epoch=1/10, avg_epoch_loss=747] 76%|███████▌  | 38/50 [01:36<00:29,  2.50s/it, epoch=1/10, avg_epoch_loss=740] 86%|████████▌ | 43/50 [01:48<00:17,  2.49s/it, epoch=1/10, avg_epoch_loss=735] 86%|████████▌ | 43/50 [02:00<00:17,  2.49s/it, epoch=1/10, avg_epoch_loss=731] 96%|█████████▌| 48/50 [02:01<00:04,  2.49s/it, epoch=1/10, avg_epoch_loss=730]100%|██████████| 50/50 [02:06<00:00,  2.52s/it, epoch=1/10, avg_epoch_loss=728]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:51,  2.47s/it, epoch=2/10, avg_epoch_loss=679] 10%|█         | 5/50 [00:23<01:51,  2.47s/it, epoch=2/10, avg_epoch_loss=677] 20%|██        | 10/50 [00:24<01:39,  2.48s/it, epoch=2/10, avg_epoch_loss=676] 30%|███       | 15/50 [00:37<01:26,  2.48s/it, epoch=2/10, avg_epoch_loss=672] 40%|████      | 20/50 [00:49<01:14,  2.48s/it, epoch=2/10, avg_epoch_loss=667] 50%|█████     | 25/50 [01:01<01:02,  2.48s/it, epoch=2/10, avg_epoch_loss=664] 50%|█████     | 25/50 [01:13<01:02,  2.48s/it, epoch=2/10, avg_epoch_loss=662] 60%|██████    | 30/50 [01:14<00:49,  2.48s/it, epoch=2/10, avg_epoch_loss=661] 70%|███████   | 35/50 [01:26<00:37,  2.48s/it, epoch=2/10, avg_epoch_loss=658] 80%|████████  | 40/50 [01:39<00:24,  2.48s/it, epoch=2/10, avg_epoch_loss=655] 90%|█████████ | 45/50 [01:51<00:12,  2.48s/it, epoch=2/10, avg_epoch_loss=653]100%|██████████| 50/50 [02:03<00:00,  2.48s/it, epoch=2/10, avg_epoch_loss=651]100%|██████████| 50/50 [02:03<00:00,  2.48s/it, epoch=2/10, avg_epoch_loss=651]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:52,  2.50s/it, epoch=3/10, avg_epoch_loss=631] 20%|██        | 10/50 [00:24<01:39,  2.49s/it, epoch=3/10, avg_epoch_loss=627] 30%|███       | 15/50 [00:35<01:21,  2.33s/it, epoch=3/10, avg_epoch_loss=625] 40%|████      | 20/50 [00:47<01:11,  2.37s/it, epoch=3/10, avg_epoch_loss=624] 40%|████      | 20/50 [01:00<01:11,  2.37s/it, epoch=3/10, avg_epoch_loss=624] 50%|█████     | 25/50 [01:00<01:00,  2.41s/it, epoch=3/10, avg_epoch_loss=624] 60%|██████    | 30/50 [01:12<00:48,  2.44s/it, epoch=3/10, avg_epoch_loss=623] 70%|███████   | 35/50 [01:24<00:36,  2.45s/it, epoch=3/10, avg_epoch_loss=622] 80%|████████  | 40/50 [01:37<00:24,  2.45s/it, epoch=3/10, avg_epoch_loss=621] 90%|█████████ | 45/50 [01:49<00:12,  2.45s/it, epoch=3/10, avg_epoch_loss=620] 90%|█████████ | 45/50 [02:00<00:12,  2.45s/it, epoch=3/10, avg_epoch_loss=620]100%|██████████| 50/50 [02:00<00:00,  2.40s/it, epoch=3/10, avg_epoch_loss=619]100%|██████████| 50/50 [02:00<00:00,  2.42s/it, epoch=3/10, avg_epoch_loss=619]
+  0%|          | 0/50 [00:00<?, ?it/s] 12%|█▏        | 6/50 [00:11<01:25,  1.95s/it, epoch=4/10, avg_epoch_loss=608] 24%|██▍       | 12/50 [00:23<01:15,  1.99s/it, epoch=4/10, avg_epoch_loss=607] 34%|███▍      | 17/50 [00:33<01:06,  2.00s/it, epoch=4/10, avg_epoch_loss=608] 46%|████▌     | 23/50 [00:46<00:54,  2.01s/it, epoch=4/10, avg_epoch_loss=606] 56%|█████▌    | 28/50 [00:56<00:44,  2.04s/it, epoch=4/10, avg_epoch_loss=605] 68%|██████▊   | 34/50 [01:08<00:32,  2.01s/it, epoch=4/10, avg_epoch_loss=604] 68%|██████▊   | 34/50 [01:19<00:32,  2.01s/it, epoch=4/10, avg_epoch_loss=604] 80%|████████  | 40/50 [01:20<00:19,  2.00s/it, epoch=4/10, avg_epoch_loss=604] 92%|█████████▏| 46/50 [01:33<00:08,  2.05s/it, epoch=4/10, avg_epoch_loss=603]100%|██████████| 50/50 [01:42<00:00,  2.05s/it, epoch=4/10, avg_epoch_loss=602]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:48,  2.41s/it, epoch=5/10, avg_epoch_loss=599] 20%|██        | 10/50 [00:24<01:36,  2.41s/it, epoch=5/10, avg_epoch_loss=596] 30%|███       | 15/50 [00:36<01:24,  2.40s/it, epoch=5/10, avg_epoch_loss=595] 30%|███       | 15/50 [00:46<01:24,  2.40s/it, epoch=5/10, avg_epoch_loss=594] 40%|████      | 20/50 [00:48<01:12,  2.40s/it, epoch=5/10, avg_epoch_loss=594] 50%|█████     | 25/50 [01:00<01:00,  2.40s/it, epoch=5/10, avg_epoch_loss=594] 60%|██████    | 30/50 [01:12<00:48,  2.40s/it, epoch=5/10, avg_epoch_loss=593] 70%|███████   | 35/50 [01:24<00:36,  2.40s/it, epoch=5/10, avg_epoch_loss=592] 80%|████████  | 40/50 [01:34<00:22,  2.29s/it, epoch=5/10, avg_epoch_loss=592] 90%|█████████ | 45/50 [01:46<00:11,  2.31s/it, epoch=5/10, avg_epoch_loss=592] 90%|█████████ | 45/50 [01:56<00:11,  2.31s/it, epoch=5/10, avg_epoch_loss=591]100%|██████████| 50/50 [01:58<00:00,  2.33s/it, epoch=5/10, avg_epoch_loss=591]100%|██████████| 50/50 [01:58<00:00,  2.36s/it, epoch=5/10, avg_epoch_loss=591]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:46,  2.38s/it, epoch=6/10, avg_epoch_loss=587] 20%|██        | 10/50 [00:23<01:35,  2.40s/it, epoch=6/10, avg_epoch_loss=583] 30%|███       | 15/50 [00:36<01:24,  2.42s/it, epoch=6/10, avg_epoch_loss=583] 40%|████      | 20/50 [00:48<01:12,  2.41s/it, epoch=6/10, avg_epoch_loss=582] 40%|████      | 20/50 [00:58<01:12,  2.41s/it, epoch=6/10, avg_epoch_loss=582] 50%|█████     | 25/50 [01:00<00:59,  2.40s/it, epoch=6/10, avg_epoch_loss=582] 60%|██████    | 30/50 [01:11<00:46,  2.35s/it, epoch=6/10, avg_epoch_loss=582] 70%|███████   | 35/50 [01:23<00:35,  2.35s/it, epoch=6/10, avg_epoch_loss=582] 80%|████████  | 40/50 [01:35<00:23,  2.37s/it, epoch=6/10, avg_epoch_loss=581] 90%|█████████ | 45/50 [01:47<00:11,  2.37s/it, epoch=6/10, avg_epoch_loss=581] 90%|█████████ | 45/50 [01:58<00:11,  2.37s/it, epoch=6/10, avg_epoch_loss=581]100%|██████████| 50/50 [01:58<00:00,  2.38s/it, epoch=6/10, avg_epoch_loss=581]100%|██████████| 50/50 [01:58<00:00,  2.38s/it, epoch=6/10, avg_epoch_loss=581]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:48,  2.41s/it, epoch=7/10, avg_epoch_loss=577] 20%|██        | 10/50 [00:23<01:35,  2.39s/it, epoch=7/10, avg_epoch_loss=576] 30%|███       | 15/50 [00:35<01:23,  2.39s/it, epoch=7/10, avg_epoch_loss=576] 40%|████      | 20/50 [00:47<01:12,  2.40s/it, epoch=7/10, avg_epoch_loss=576] 40%|████      | 20/50 [00:59<01:12,  2.40s/it, epoch=7/10, avg_epoch_loss=576] 50%|█████     | 25/50 [01:00<01:00,  2.42s/it, epoch=7/10, avg_epoch_loss=575] 60%|██████    | 30/50 [01:10<00:45,  2.29s/it, epoch=7/10, avg_epoch_loss=575] 72%|███████▏  | 36/50 [01:22<00:30,  2.17s/it, epoch=7/10, avg_epoch_loss=574] 84%|████████▍ | 42/50 [01:35<00:17,  2.16s/it, epoch=7/10, avg_epoch_loss=574] 94%|█████████▍| 47/50 [01:47<00:06,  2.23s/it, epoch=7/10, avg_epoch_loss=574]100%|██████████| 50/50 [01:54<00:00,  2.28s/it, epoch=7/10, avg_epoch_loss=574]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:10<01:38,  2.18s/it, epoch=8/10, avg_epoch_loss=567] 20%|██        | 10/50 [00:22<01:32,  2.31s/it, epoch=8/10, avg_epoch_loss=567] 30%|███       | 15/50 [00:34<01:20,  2.30s/it, epoch=8/10, avg_epoch_loss=567] 30%|███       | 15/50 [00:45<01:20,  2.30s/it, epoch=8/10, avg_epoch_loss=567] 40%|████      | 20/50 [00:45<01:08,  2.30s/it, epoch=8/10, avg_epoch_loss=567] 50%|█████     | 25/50 [00:57<00:58,  2.33s/it, epoch=8/10, avg_epoch_loss=568] 60%|██████    | 30/50 [01:09<00:46,  2.31s/it, epoch=8/10, avg_epoch_loss=567] 70%|███████   | 35/50 [01:20<00:34,  2.33s/it, epoch=8/10, avg_epoch_loss=566] 80%|████████  | 40/50 [01:33<00:23,  2.37s/it, epoch=8/10, avg_epoch_loss=566] 80%|████████  | 40/50 [01:45<00:23,  2.37s/it, epoch=8/10, avg_epoch_loss=565] 90%|█████████ | 45/50 [01:45<00:11,  2.40s/it, epoch=8/10, avg_epoch_loss=565]100%|██████████| 50/50 [01:57<00:00,  2.42s/it, epoch=8/10, avg_epoch_loss=565]100%|██████████| 50/50 [01:57<00:00,  2.36s/it, epoch=8/10, avg_epoch_loss=565]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:45,  2.35s/it, epoch=9/10, avg_epoch_loss=560] 20%|██        | 10/50 [00:23<01:33,  2.34s/it, epoch=9/10, avg_epoch_loss=561] 30%|███       | 15/50 [00:35<01:21,  2.33s/it, epoch=9/10, avg_epoch_loss=560] 40%|████      | 20/50 [00:46<01:10,  2.34s/it, epoch=9/10, avg_epoch_loss=559] 40%|████      | 20/50 [00:57<01:10,  2.34s/it, epoch=9/10, avg_epoch_loss=559] 50%|█████     | 25/50 [00:58<00:59,  2.37s/it, epoch=9/10, avg_epoch_loss=559] 60%|██████    | 30/50 [01:11<00:47,  2.40s/it, epoch=9/10, avg_epoch_loss=560] 70%|███████   | 35/50 [01:23<00:36,  2.41s/it, epoch=9/10, avg_epoch_loss=559] 80%|████████  | 40/50 [01:35<00:24,  2.42s/it, epoch=9/10, avg_epoch_loss=559] 80%|████████  | 40/50 [01:47<00:24,  2.42s/it, epoch=9/10, avg_epoch_loss=559] 90%|█████████ | 45/50 [01:47<00:12,  2.42s/it, epoch=9/10, avg_epoch_loss=559]100%|██████████| 50/50 [01:59<00:00,  2.43s/it, epoch=9/10, avg_epoch_loss=559]100%|██████████| 50/50 [01:59<00:00,  2.40s/it, epoch=9/10, avg_epoch_loss=559]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:50,  2.47s/it, epoch=10/10, avg_epoch_loss=556] 20%|██        | 10/50 [00:24<01:38,  2.46s/it, epoch=10/10, avg_epoch_loss=556] 30%|███       | 15/50 [00:37<01:26,  2.48s/it, epoch=10/10, avg_epoch_loss=555] 30%|███       | 15/50 [00:47<01:26,  2.48s/it, epoch=10/10, avg_epoch_loss=555] 40%|████      | 20/50 [00:48<01:10,  2.36s/it, epoch=10/10, avg_epoch_loss=555] 50%|█████     | 25/50 [00:58<00:55,  2.23s/it, epoch=10/10, avg_epoch_loss=555] 62%|██████▏   | 31/50 [01:09<00:39,  2.09s/it, epoch=10/10, avg_epoch_loss=555] 74%|███████▍  | 37/50 [01:21<00:27,  2.09s/it, epoch=10/10, avg_epoch_loss=554] 84%|████████▍ | 42/50 [01:32<00:16,  2.10s/it, epoch=10/10, avg_epoch_loss=553] 96%|█████████▌| 48/50 [01:44<00:04,  2.08s/it, epoch=10/10, avg_epoch_loss=553]100%|██████████| 50/50 [01:48<00:00,  2.17s/it, epoch=10/10, avg_epoch_loss=553]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1444.82it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.63it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.54it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.54it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.56it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.60it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.53it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.53it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.51it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.55it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.52it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.56it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.60it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.58it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.51it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.53it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.55it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.55it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.55it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.57it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.57it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.53it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.39it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.52it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.52it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.53it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:10<02:00,  2.62s/it, epoch=1/10, avg_epoch_loss=796] 18%|█▊        | 9/50 [00:22<01:39,  2.43s/it, epoch=1/10, avg_epoch_loss=790] 28%|██▊       | 14/50 [00:33<01:26,  2.40s/it, epoch=1/10, avg_epoch_loss=776] 38%|███▊      | 19/50 [00:45<01:13,  2.36s/it, epoch=1/10, avg_epoch_loss=766] 48%|████▊     | 24/50 [00:57<01:01,  2.36s/it, epoch=1/10, avg_epoch_loss=760] 58%|█████▊    | 29/50 [01:08<00:48,  2.31s/it, epoch=1/10, avg_epoch_loss=756] 58%|█████▊    | 29/50 [01:20<00:48,  2.31s/it, epoch=1/10, avg_epoch_loss=749] 68%|██████▊   | 34/50 [01:20<00:37,  2.33s/it, epoch=1/10, avg_epoch_loss=749] 78%|███████▊  | 39/50 [01:31<00:25,  2.34s/it, epoch=1/10, avg_epoch_loss=744] 88%|████████▊ | 44/50 [01:43<00:13,  2.33s/it, epoch=1/10, avg_epoch_loss=741] 98%|█████████▊| 49/50 [01:55<00:02,  2.32s/it, epoch=1/10, avg_epoch_loss=735]100%|██████████| 50/50 [01:57<00:00,  2.34s/it, epoch=1/10, avg_epoch_loss=734]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:10<01:37,  2.17s/it, epoch=2/10, avg_epoch_loss=678] 20%|██        | 10/50 [00:22<01:29,  2.25s/it, epoch=2/10, avg_epoch_loss=677] 20%|██        | 10/50 [00:32<01:29,  2.25s/it, epoch=2/10, avg_epoch_loss=675] 32%|███▏      | 16/50 [00:34<01:11,  2.11s/it, epoch=2/10, avg_epoch_loss=675] 44%|████▍     | 22/50 [00:46<00:58,  2.08s/it, epoch=2/10, avg_epoch_loss=671] 54%|█████▍    | 27/50 [00:56<00:47,  2.07s/it, epoch=2/10, avg_epoch_loss=668] 66%|██████▌   | 33/50 [01:08<00:34,  2.05s/it, epoch=2/10, avg_epoch_loss=667] 76%|███████▌  | 38/50 [01:20<00:25,  2.13s/it, epoch=2/10, avg_epoch_loss=664] 86%|████████▌ | 43/50 [01:32<00:15,  2.20s/it, epoch=2/10, avg_epoch_loss=661] 86%|████████▌ | 43/50 [01:42<00:15,  2.20s/it, epoch=2/10, avg_epoch_loss=659] 96%|█████████▌| 48/50 [01:43<00:04,  2.22s/it, epoch=2/10, avg_epoch_loss=659]100%|██████████| 50/50 [01:47<00:00,  2.16s/it, epoch=2/10, avg_epoch_loss=658]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:43,  2.31s/it, epoch=3/10, avg_epoch_loss=633] 20%|██        | 10/50 [00:22<01:31,  2.28s/it, epoch=3/10, avg_epoch_loss=636] 30%|███       | 15/50 [00:34<01:19,  2.28s/it, epoch=3/10, avg_epoch_loss=634] 30%|███       | 15/50 [00:45<01:19,  2.28s/it, epoch=3/10, avg_epoch_loss=632] 40%|████      | 20/50 [00:46<01:09,  2.33s/it, epoch=3/10, avg_epoch_loss=631] 50%|█████     | 25/50 [00:58<00:59,  2.37s/it, epoch=3/10, avg_epoch_loss=629] 60%|██████    | 30/50 [01:10<00:47,  2.38s/it, epoch=3/10, avg_epoch_loss=628] 70%|███████   | 35/50 [01:22<00:35,  2.39s/it, epoch=3/10, avg_epoch_loss=626] 80%|████████  | 40/50 [01:34<00:24,  2.40s/it, epoch=3/10, avg_epoch_loss=625] 80%|████████  | 40/50 [01:45<00:24,  2.40s/it, epoch=3/10, avg_epoch_loss=624] 90%|█████████ | 45/50 [01:46<00:12,  2.42s/it, epoch=3/10, avg_epoch_loss=624]100%|██████████| 50/50 [01:59<00:00,  2.42s/it, epoch=3/10, avg_epoch_loss=623]100%|██████████| 50/50 [01:59<00:00,  2.38s/it, epoch=3/10, avg_epoch_loss=623]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:49,  2.44s/it, epoch=4/10, avg_epoch_loss=612] 20%|██        | 10/50 [00:24<01:38,  2.46s/it, epoch=4/10, avg_epoch_loss=610] 20%|██        | 10/50 [00:35<01:38,  2.46s/it, epoch=4/10, avg_epoch_loss=608] 30%|███       | 15/50 [00:36<01:25,  2.45s/it, epoch=4/10, avg_epoch_loss=608] 40%|████      | 20/50 [00:49<01:13,  2.45s/it, epoch=4/10, avg_epoch_loss=606] 50%|█████     | 25/50 [00:59<00:57,  2.29s/it, epoch=4/10, avg_epoch_loss=607] 60%|██████    | 30/50 [01:09<00:44,  2.21s/it, epoch=4/10, avg_epoch_loss=605] 72%|███████▏  | 36/50 [01:20<00:29,  2.10s/it, epoch=4/10, avg_epoch_loss=604] 84%|████████▍ | 42/50 [01:33<00:16,  2.12s/it, epoch=4/10, avg_epoch_loss=604] 94%|█████████▍| 47/50 [01:44<00:06,  2.15s/it, epoch=4/10, avg_epoch_loss=603]100%|██████████| 50/50 [01:52<00:00,  2.25s/it, epoch=4/10, avg_epoch_loss=602]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:49,  2.43s/it, epoch=5/10, avg_epoch_loss=594] 20%|██        | 10/50 [00:23<01:31,  2.30s/it, epoch=5/10, avg_epoch_loss=593] 20%|██        | 10/50 [00:33<01:31,  2.30s/it, epoch=5/10, avg_epoch_loss=592] 30%|███       | 15/50 [00:35<01:22,  2.37s/it, epoch=5/10, avg_epoch_loss=592] 40%|████      | 20/50 [00:47<01:11,  2.39s/it, epoch=5/10, avg_epoch_loss=590] 50%|█████     | 25/50 [00:59<01:00,  2.40s/it, epoch=5/10, avg_epoch_loss=590] 60%|██████    | 30/50 [01:11<00:48,  2.41s/it, epoch=5/10, avg_epoch_loss=590] 60%|██████    | 30/50 [01:23<00:48,  2.41s/it, epoch=5/10, avg_epoch_loss=589] 70%|███████   | 35/50 [01:24<00:36,  2.42s/it, epoch=5/10, avg_epoch_loss=589] 80%|████████  | 40/50 [01:36<00:24,  2.42s/it, epoch=5/10, avg_epoch_loss=588] 90%|█████████ | 45/50 [01:48<00:12,  2.42s/it, epoch=5/10, avg_epoch_loss=588]100%|██████████| 50/50 [02:00<00:00,  2.43s/it, epoch=5/10, avg_epoch_loss=587]100%|██████████| 50/50 [02:00<00:00,  2.41s/it, epoch=5/10, avg_epoch_loss=587]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:50,  2.45s/it, epoch=6/10, avg_epoch_loss=579] 10%|█         | 5/50 [00:23<01:50,  2.45s/it, epoch=6/10, avg_epoch_loss=581] 20%|██        | 10/50 [00:24<01:37,  2.44s/it, epoch=6/10, avg_epoch_loss=581] 30%|███       | 15/50 [00:36<01:25,  2.45s/it, epoch=6/10, avg_epoch_loss=582] 40%|████      | 20/50 [00:49<01:14,  2.47s/it, epoch=6/10, avg_epoch_loss=581] 50%|█████     | 25/50 [01:01<01:01,  2.47s/it, epoch=6/10, avg_epoch_loss=580] 50%|█████     | 25/50 [01:13<01:01,  2.47s/it, epoch=6/10, avg_epoch_loss=579] 60%|██████    | 30/50 [01:13<00:49,  2.46s/it, epoch=6/10, avg_epoch_loss=579] 70%|███████   | 35/50 [01:26<00:37,  2.47s/it, epoch=6/10, avg_epoch_loss=579] 80%|████████  | 40/50 [01:37<00:24,  2.40s/it, epoch=6/10, avg_epoch_loss=578] 92%|█████████▏| 46/50 [01:48<00:08,  2.23s/it, epoch=6/10, avg_epoch_loss=578]100%|██████████| 50/50 [01:57<00:00,  2.34s/it, epoch=6/10, avg_epoch_loss=577]
+  0%|          | 0/50 [00:00<?, ?it/s] 12%|█▏        | 6/50 [00:12<01:29,  2.04s/it, epoch=7/10, avg_epoch_loss=572] 22%|██▏       | 11/50 [00:24<01:28,  2.27s/it, epoch=7/10, avg_epoch_loss=572] 22%|██▏       | 11/50 [00:35<01:28,  2.27s/it, epoch=7/10, avg_epoch_loss=573] 32%|███▏      | 16/50 [00:36<01:20,  2.35s/it, epoch=7/10, avg_epoch_loss=573] 42%|████▏     | 21/50 [00:49<01:09,  2.41s/it, epoch=7/10, avg_epoch_loss=570] 52%|█████▏    | 26/50 [01:01<00:58,  2.42s/it, epoch=7/10, avg_epoch_loss=570] 62%|██████▏   | 31/50 [01:13<00:46,  2.43s/it, epoch=7/10, avg_epoch_loss=570] 62%|██████▏   | 31/50 [01:25<00:46,  2.43s/it, epoch=7/10, avg_epoch_loss=570] 72%|███████▏  | 36/50 [01:26<00:34,  2.45s/it, epoch=7/10, avg_epoch_loss=570] 82%|████████▏ | 41/50 [01:38<00:22,  2.46s/it, epoch=7/10, avg_epoch_loss=569] 92%|█████████▏| 46/50 [01:50<00:09,  2.46s/it, epoch=7/10, avg_epoch_loss=569]100%|██████████| 50/50 [02:00<00:00,  2.42s/it, epoch=7/10, avg_epoch_loss=569]
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:10<01:55,  2.50s/it, epoch=8/10, avg_epoch_loss=573] 18%|█▊        | 9/50 [00:22<01:41,  2.48s/it, epoch=8/10, avg_epoch_loss=566] 28%|██▊       | 14/50 [00:34<01:28,  2.47s/it, epoch=8/10, avg_epoch_loss=564] 28%|██▊       | 14/50 [00:44<01:28,  2.47s/it, epoch=8/10, avg_epoch_loss=563] 38%|███▊      | 19/50 [00:46<01:15,  2.44s/it, epoch=8/10, avg_epoch_loss=563] 48%|████▊     | 24/50 [00:58<01:03,  2.44s/it, epoch=8/10, avg_epoch_loss=562] 58%|█████▊    | 29/50 [01:11<00:51,  2.45s/it, epoch=8/10, avg_epoch_loss=561] 68%|██████▊   | 34/50 [01:23<00:39,  2.45s/it, epoch=8/10, avg_epoch_loss=560] 68%|██████▊   | 34/50 [01:34<00:39,  2.45s/it, epoch=8/10, avg_epoch_loss=561] 78%|███████▊  | 39/50 [01:35<00:26,  2.45s/it, epoch=8/10, avg_epoch_loss=561] 88%|████████▊ | 44/50 [01:47<00:14,  2.45s/it, epoch=8/10, avg_epoch_loss=560] 98%|█████████▊| 49/50 [02:00<00:02,  2.46s/it, epoch=8/10, avg_epoch_loss=560]100%|██████████| 50/50 [02:02<00:00,  2.46s/it, epoch=8/10, avg_epoch_loss=560]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:48,  2.41s/it, epoch=9/10, avg_epoch_loss=551] 10%|█         | 5/50 [00:22<01:48,  2.41s/it, epoch=9/10, avg_epoch_loss=553] 20%|██        | 10/50 [00:24<01:37,  2.44s/it, epoch=9/10, avg_epoch_loss=554] 30%|███       | 15/50 [00:36<01:26,  2.46s/it, epoch=9/10, avg_epoch_loss=553] 40%|████      | 20/50 [00:48<01:13,  2.45s/it, epoch=9/10, avg_epoch_loss=553] 50%|█████     | 25/50 [01:01<01:01,  2.44s/it, epoch=9/10, avg_epoch_loss=553] 50%|█████     | 25/50 [01:12<01:01,  2.44s/it, epoch=9/10, avg_epoch_loss=552] 60%|██████    | 30/50 [01:13<00:49,  2.46s/it, epoch=9/10, avg_epoch_loss=552] 70%|███████   | 35/50 [01:26<00:37,  2.47s/it, epoch=9/10, avg_epoch_loss=552] 80%|████████  | 40/50 [01:38<00:24,  2.48s/it, epoch=9/10, avg_epoch_loss=552] 90%|█████████ | 45/50 [01:51<00:12,  2.50s/it, epoch=9/10, avg_epoch_loss=552] 98%|█████████▊| 49/50 [02:01<00:02,  2.50s/it, epoch=9/10, avg_epoch_loss=551]100%|██████████| 50/50 [02:03<00:00,  2.48s/it, epoch=9/10, avg_epoch_loss=551]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:50,  2.46s/it, epoch=10/10, avg_epoch_loss=546] 20%|██        | 10/50 [00:24<01:37,  2.45s/it, epoch=10/10, avg_epoch_loss=546] 30%|███       | 15/50 [00:36<01:26,  2.47s/it, epoch=10/10, avg_epoch_loss=546] 30%|███       | 15/50 [00:48<01:26,  2.47s/it, epoch=10/10, avg_epoch_loss=544] 40%|████      | 20/50 [00:49<01:13,  2.47s/it, epoch=10/10, avg_epoch_loss=545] 50%|█████     | 25/50 [01:01<01:01,  2.46s/it, epoch=10/10, avg_epoch_loss=545] 60%|██████    | 30/50 [01:13<00:48,  2.44s/it, epoch=10/10, avg_epoch_loss=545] 70%|███████   | 35/50 [01:25<00:36,  2.40s/it, epoch=10/10, avg_epoch_loss=545] 80%|████████  | 40/50 [01:36<00:23,  2.37s/it, epoch=10/10, avg_epoch_loss=544] 80%|████████  | 40/50 [01:48<00:23,  2.37s/it, epoch=10/10, avg_epoch_loss=544] 90%|█████████ | 45/50 [01:49<00:12,  2.40s/it, epoch=10/10, avg_epoch_loss=544]100%|██████████| 50/50 [02:01<00:00,  2.42s/it, epoch=10/10, avg_epoch_loss=543]100%|██████████| 50/50 [02:01<00:00,  2.43s/it, epoch=10/10, avg_epoch_loss=543]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1478.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.08it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.24it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:10<01:57,  2.55s/it, epoch=1/10, avg_epoch_loss=801]  8%|▊         | 4/50 [00:21<01:57,  2.55s/it, epoch=1/10, avg_epoch_loss=796] 18%|█▊        | 9/50 [00:21<01:38,  2.40s/it, epoch=1/10, avg_epoch_loss=801] 28%|██▊       | 14/50 [00:33<01:25,  2.38s/it, epoch=1/10, avg_epoch_loss=787] 38%|███▊      | 19/50 [00:45<01:12,  2.35s/it, epoch=1/10, avg_epoch_loss=776] 48%|████▊     | 24/50 [00:56<01:00,  2.34s/it, epoch=1/10, avg_epoch_loss=766] 58%|█████▊    | 29/50 [01:07<00:48,  2.31s/it, epoch=1/10, avg_epoch_loss=761] 68%|██████▊   | 34/50 [01:20<00:37,  2.35s/it, epoch=1/10, avg_epoch_loss=753] 68%|██████▊   | 34/50 [01:31<00:37,  2.35s/it, epoch=1/10, avg_epoch_loss=749] 78%|███████▊  | 39/50 [01:32<00:26,  2.38s/it, epoch=1/10, avg_epoch_loss=748] 88%|████████▊ | 44/50 [01:44<00:14,  2.40s/it, epoch=1/10, avg_epoch_loss=741] 98%|█████████▊| 49/50 [01:56<00:02,  2.41s/it, epoch=1/10, avg_epoch_loss=735]100%|██████████| 50/50 [01:59<00:00,  2.38s/it, epoch=1/10, avg_epoch_loss=734]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:50,  2.45s/it, epoch=2/10, avg_epoch_loss=674] 22%|██▏       | 11/50 [00:24<01:25,  2.20s/it, epoch=2/10, avg_epoch_loss=673] 32%|███▏      | 16/50 [00:35<01:15,  2.21s/it, epoch=2/10, avg_epoch_loss=670] 42%|████▏     | 21/50 [00:45<01:02,  2.14s/it, epoch=2/10, avg_epoch_loss=668] 54%|█████▍    | 27/50 [00:57<00:47,  2.06s/it, epoch=2/10, avg_epoch_loss=665] 66%|██████▌   | 33/50 [01:09<00:35,  2.07s/it, epoch=2/10, avg_epoch_loss=662] 76%|███████▌  | 38/50 [01:22<00:26,  2.18s/it, epoch=2/10, avg_epoch_loss=660] 76%|███████▌  | 38/50 [01:32<00:26,  2.18s/it, epoch=2/10, avg_epoch_loss=659] 86%|████████▌ | 43/50 [01:34<00:15,  2.26s/it, epoch=2/10, avg_epoch_loss=658] 96%|█████████▌| 48/50 [01:46<00:04,  2.32s/it, epoch=2/10, avg_epoch_loss=657]100%|██████████| 50/50 [01:51<00:00,  2.23s/it, epoch=2/10, avg_epoch_loss=656]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:49,  2.44s/it, epoch=3/10, avg_epoch_loss=638] 20%|██        | 10/50 [00:24<01:37,  2.44s/it, epoch=3/10, avg_epoch_loss=636] 30%|███       | 15/50 [00:36<01:25,  2.45s/it, epoch=3/10, avg_epoch_loss=636] 42%|████▏     | 21/50 [00:48<01:05,  2.26s/it, epoch=3/10, avg_epoch_loss=634] 42%|████▏     | 21/50 [01:00<01:05,  2.26s/it, epoch=3/10, avg_epoch_loss=633] 54%|█████▍    | 27/50 [01:00<00:49,  2.15s/it, epoch=3/10, avg_epoch_loss=633] 66%|██████▌   | 33/50 [01:13<00:36,  2.17s/it, epoch=3/10, avg_epoch_loss=632] 76%|███████▌  | 38/50 [01:26<00:27,  2.25s/it, epoch=3/10, avg_epoch_loss=630] 86%|████████▌ | 43/50 [01:36<00:15,  2.20s/it, epoch=3/10, avg_epoch_loss=630] 96%|█████████▌| 48/50 [01:47<00:04,  2.19s/it, epoch=3/10, avg_epoch_loss=628]100%|██████████| 50/50 [01:52<00:00,  2.24s/it, epoch=3/10, avg_epoch_loss=628]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:49,  2.43s/it, epoch=4/10, avg_epoch_loss=618] 20%|██        | 10/50 [00:24<01:37,  2.43s/it, epoch=4/10, avg_epoch_loss=616] 30%|███       | 15/50 [00:36<01:23,  2.40s/it, epoch=4/10, avg_epoch_loss=613] 40%|████      | 20/50 [00:47<01:11,  2.38s/it, epoch=4/10, avg_epoch_loss=612] 40%|████      | 20/50 [00:58<01:11,  2.38s/it, epoch=4/10, avg_epoch_loss=612] 50%|█████     | 25/50 [01:00<01:00,  2.41s/it, epoch=4/10, avg_epoch_loss=611] 60%|██████    | 30/50 [01:12<00:48,  2.40s/it, epoch=4/10, avg_epoch_loss=610] 70%|███████   | 35/50 [01:24<00:36,  2.42s/it, epoch=4/10, avg_epoch_loss=609] 80%|████████  | 40/50 [01:36<00:24,  2.43s/it, epoch=4/10, avg_epoch_loss=609] 80%|████████  | 40/50 [01:48<00:24,  2.43s/it, epoch=4/10, avg_epoch_loss=609] 90%|█████████ | 45/50 [01:48<00:12,  2.43s/it, epoch=4/10, avg_epoch_loss=609]100%|██████████| 50/50 [01:59<00:00,  2.34s/it, epoch=4/10, avg_epoch_loss=608]100%|██████████| 50/50 [01:59<00:00,  2.39s/it, epoch=4/10, avg_epoch_loss=608]
+  0%|          | 0/50 [00:00<?, ?it/s] 12%|█▏        | 6/50 [00:11<01:25,  1.94s/it, epoch=5/10, avg_epoch_loss=601] 24%|██▍       | 12/50 [00:24<01:19,  2.10s/it, epoch=5/10, avg_epoch_loss=600] 34%|███▍      | 17/50 [00:37<01:14,  2.27s/it, epoch=5/10, avg_epoch_loss=599] 34%|███▍      | 17/50 [00:49<01:14,  2.27s/it, epoch=5/10, avg_epoch_loss=598] 44%|████▍     | 22/50 [00:49<01:05,  2.35s/it, epoch=5/10, avg_epoch_loss=598] 54%|█████▍    | 27/50 [01:01<00:53,  2.34s/it, epoch=5/10, avg_epoch_loss=597] 66%|██████▌   | 33/50 [01:13<00:37,  2.20s/it, epoch=5/10, avg_epoch_loss=596] 78%|███████▊  | 39/50 [01:27<00:25,  2.29s/it, epoch=5/10, avg_epoch_loss=596] 78%|███████▊  | 39/50 [01:39<00:25,  2.29s/it, epoch=5/10, avg_epoch_loss=595] 88%|████████▊ | 44/50 [01:39<00:13,  2.31s/it, epoch=5/10, avg_epoch_loss=595] 98%|█████████▊| 49/50 [01:52<00:02,  2.37s/it, epoch=5/10, avg_epoch_loss=594]100%|██████████| 50/50 [01:54<00:00,  2.30s/it, epoch=5/10, avg_epoch_loss=594]
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:10<01:56,  2.52s/it, epoch=6/10, avg_epoch_loss=586] 18%|█▊        | 9/50 [00:22<01:42,  2.50s/it, epoch=6/10, avg_epoch_loss=590] 18%|█▊        | 9/50 [00:34<01:42,  2.50s/it, epoch=6/10, avg_epoch_loss=590] 28%|██▊       | 14/50 [00:34<01:29,  2.49s/it, epoch=6/10, avg_epoch_loss=590] 38%|███▊      | 19/50 [00:47<01:16,  2.48s/it, epoch=6/10, avg_epoch_loss=589] 48%|████▊     | 24/50 [00:59<01:04,  2.49s/it, epoch=6/10, avg_epoch_loss=588] 58%|█████▊    | 29/50 [01:12<00:52,  2.49s/it, epoch=6/10, avg_epoch_loss=588] 58%|█████▊    | 29/50 [01:24<00:52,  2.49s/it, epoch=6/10, avg_epoch_loss=587] 68%|██████▊   | 34/50 [01:24<00:39,  2.49s/it, epoch=6/10, avg_epoch_loss=587] 78%|███████▊  | 39/50 [01:36<00:27,  2.48s/it, epoch=6/10, avg_epoch_loss=586] 88%|████████▊ | 44/50 [01:49<00:14,  2.49s/it, epoch=6/10, avg_epoch_loss=585] 98%|█████████▊| 49/50 [02:01<00:02,  2.48s/it, epoch=6/10, avg_epoch_loss=585]100%|██████████| 50/50 [02:04<00:00,  2.49s/it, epoch=6/10, avg_epoch_loss=585]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:51,  2.48s/it, epoch=7/10, avg_epoch_loss=575] 20%|██        | 10/50 [00:24<01:39,  2.48s/it, epoch=7/10, avg_epoch_loss=576] 30%|███       | 15/50 [00:37<01:26,  2.48s/it, epoch=7/10, avg_epoch_loss=578] 40%|████      | 20/50 [00:49<01:14,  2.48s/it, epoch=7/10, avg_epoch_loss=577] 40%|████      | 20/50 [00:59<01:14,  2.48s/it, epoch=7/10, avg_epoch_loss=576] 50%|█████     | 25/50 [01:01<01:02,  2.48s/it, epoch=7/10, avg_epoch_loss=576] 60%|██████    | 30/50 [01:14<00:49,  2.47s/it, epoch=7/10, avg_epoch_loss=575] 70%|███████   | 35/50 [01:26<00:37,  2.48s/it, epoch=7/10, avg_epoch_loss=576] 80%|████████  | 40/50 [01:39<00:24,  2.48s/it, epoch=7/10, avg_epoch_loss=575] 80%|████████  | 40/50 [01:49<00:24,  2.48s/it, epoch=7/10, avg_epoch_loss=575] 90%|█████████ | 45/50 [01:51<00:12,  2.48s/it, epoch=7/10, avg_epoch_loss=575]100%|██████████| 50/50 [02:03<00:00,  2.45s/it, epoch=7/10, avg_epoch_loss=575]100%|██████████| 50/50 [02:03<00:00,  2.47s/it, epoch=7/10, avg_epoch_loss=575]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:45,  2.34s/it, epoch=8/10, avg_epoch_loss=568] 20%|██        | 10/50 [00:23<01:34,  2.36s/it, epoch=8/10, avg_epoch_loss=568] 30%|███       | 15/50 [00:35<01:22,  2.35s/it, epoch=8/10, avg_epoch_loss=568] 30%|███       | 15/50 [00:46<01:22,  2.35s/it, epoch=8/10, avg_epoch_loss=568] 40%|████      | 20/50 [00:46<01:10,  2.34s/it, epoch=8/10, avg_epoch_loss=567] 50%|█████     | 25/50 [00:58<00:58,  2.33s/it, epoch=8/10, avg_epoch_loss=567] 60%|██████    | 30/50 [01:09<00:46,  2.32s/it, epoch=8/10, avg_epoch_loss=567] 70%|███████   | 35/50 [01:21<00:34,  2.33s/it, epoch=8/10, avg_epoch_loss=566] 80%|████████  | 40/50 [01:33<00:23,  2.34s/it, epoch=8/10, avg_epoch_loss=566] 90%|█████████ | 45/50 [01:45<00:11,  2.34s/it, epoch=8/10, avg_epoch_loss=566] 90%|█████████ | 45/50 [01:56<00:11,  2.34s/it, epoch=8/10, avg_epoch_loss=566]100%|██████████| 50/50 [01:56<00:00,  2.34s/it, epoch=8/10, avg_epoch_loss=566]100%|██████████| 50/50 [01:56<00:00,  2.34s/it, epoch=8/10, avg_epoch_loss=566]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:49,  2.43s/it, epoch=9/10, avg_epoch_loss=559] 20%|██        | 10/50 [00:24<01:37,  2.43s/it, epoch=9/10, avg_epoch_loss=560] 30%|███       | 15/50 [00:36<01:25,  2.44s/it, epoch=9/10, avg_epoch_loss=561] 40%|████      | 20/50 [00:48<01:13,  2.45s/it, epoch=9/10, avg_epoch_loss=561] 40%|████      | 20/50 [00:59<01:13,  2.45s/it, epoch=9/10, avg_epoch_loss=560] 50%|█████     | 25/50 [00:59<00:58,  2.35s/it, epoch=9/10, avg_epoch_loss=560] 62%|██████▏   | 31/50 [01:11<00:41,  2.17s/it, epoch=9/10, avg_epoch_loss=560] 74%|███████▍  | 37/50 [01:25<00:29,  2.27s/it, epoch=9/10, avg_epoch_loss=560] 84%|████████▍ | 42/50 [01:37<00:18,  2.32s/it, epoch=9/10, avg_epoch_loss=559] 84%|████████▍ | 42/50 [01:49<00:18,  2.32s/it, epoch=9/10, avg_epoch_loss=559] 94%|█████████▍| 47/50 [01:49<00:07,  2.35s/it, epoch=9/10, avg_epoch_loss=559]100%|██████████| 50/50 [01:57<00:00,  2.35s/it, epoch=9/10, avg_epoch_loss=558]
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:10<01:55,  2.50s/it, epoch=10/10, avg_epoch_loss=555]  8%|▊         | 4/50 [00:22<01:55,  2.50s/it, epoch=10/10, avg_epoch_loss=555] 18%|█▊        | 9/50 [00:22<01:41,  2.47s/it, epoch=10/10, avg_epoch_loss=556] 28%|██▊       | 14/50 [00:34<01:28,  2.45s/it, epoch=10/10, avg_epoch_loss=556] 38%|███▊      | 19/50 [00:46<01:15,  2.44s/it, epoch=10/10, avg_epoch_loss=555] 48%|████▊     | 24/50 [00:58<01:03,  2.43s/it, epoch=10/10, avg_epoch_loss=554] 58%|█████▊    | 29/50 [01:09<00:49,  2.36s/it, epoch=10/10, avg_epoch_loss=554] 68%|██████▊   | 34/50 [01:20<00:36,  2.28s/it, epoch=10/10, avg_epoch_loss=554] 78%|███████▊  | 39/50 [01:31<00:25,  2.28s/it, epoch=10/10, avg_epoch_loss=553] 78%|███████▊  | 39/50 [01:42<00:25,  2.28s/it, epoch=10/10, avg_epoch_loss=553] 88%|████████▊ | 44/50 [01:43<00:13,  2.29s/it, epoch=10/10, avg_epoch_loss=553] 98%|█████████▊| 49/50 [01:54<00:02,  2.30s/it, epoch=10/10, avg_epoch_loss=552]100%|██████████| 50/50 [01:57<00:00,  2.35s/it, epoch=10/10, avg_epoch_loss=552]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1214.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.26it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.25it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.24it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.25it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.25it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.23it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.23it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.25it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.26it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:10<02:04,  2.70s/it, epoch=1/10, avg_epoch_loss=841] 18%|█▊        | 9/50 [00:22<01:42,  2.50s/it, epoch=1/10, avg_epoch_loss=815] 28%|██▊       | 14/50 [00:34<01:28,  2.46s/it, epoch=1/10, avg_epoch_loss=806] 28%|██▊       | 14/50 [00:45<01:28,  2.46s/it, epoch=1/10, avg_epoch_loss=792] 38%|███▊      | 19/50 [00:47<01:16,  2.45s/it, epoch=1/10, avg_epoch_loss=789] 48%|████▊     | 24/50 [00:59<01:03,  2.44s/it, epoch=1/10, avg_epoch_loss=774] 58%|█████▊    | 29/50 [01:11<00:51,  2.44s/it, epoch=1/10, avg_epoch_loss=764] 68%|██████▊   | 34/50 [01:23<00:38,  2.43s/it, epoch=1/10, avg_epoch_loss=757] 78%|███████▊  | 39/50 [01:35<00:26,  2.42s/it, epoch=1/10, avg_epoch_loss=750] 78%|███████▊  | 39/50 [01:45<00:26,  2.42s/it, epoch=1/10, avg_epoch_loss=744] 88%|████████▊ | 44/50 [01:47<00:14,  2.41s/it, epoch=1/10, avg_epoch_loss=743] 98%|█████████▊| 49/50 [01:59<00:02,  2.41s/it, epoch=1/10, avg_epoch_loss=738]100%|██████████| 50/50 [02:01<00:00,  2.43s/it, epoch=1/10, avg_epoch_loss=737]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:48,  2.41s/it, epoch=2/10, avg_epoch_loss=678] 10%|█         | 5/50 [00:23<01:48,  2.41s/it, epoch=2/10, avg_epoch_loss=675] 20%|██        | 10/50 [00:23<01:35,  2.40s/it, epoch=2/10, avg_epoch_loss=675] 30%|███       | 15/50 [00:34<01:20,  2.29s/it, epoch=2/10, avg_epoch_loss=673] 40%|████      | 20/50 [00:46<01:08,  2.30s/it, epoch=2/10, avg_epoch_loss=669] 50%|█████     | 25/50 [00:58<00:58,  2.34s/it, epoch=2/10, avg_epoch_loss=666] 60%|██████    | 30/50 [01:10<00:47,  2.36s/it, epoch=2/10, avg_epoch_loss=663] 70%|███████   | 35/50 [01:22<00:35,  2.37s/it, epoch=2/10, avg_epoch_loss=661] 80%|████████  | 40/50 [01:33<00:23,  2.32s/it, epoch=2/10, avg_epoch_loss=659] 80%|████████  | 40/50 [01:43<00:23,  2.32s/it, epoch=2/10, avg_epoch_loss=656] 92%|█████████▏| 46/50 [01:44<00:08,  2.17s/it, epoch=2/10, avg_epoch_loss=656]100%|██████████| 50/50 [01:52<00:00,  2.25s/it, epoch=2/10, avg_epoch_loss=654]
+  0%|          | 0/50 [00:00<?, ?it/s] 12%|█▏        | 6/50 [00:11<01:24,  1.92s/it, epoch=3/10, avg_epoch_loss=628] 12%|█▏        | 6/50 [00:21<01:24,  1.92s/it, epoch=3/10, avg_epoch_loss=627] 22%|██▏       | 11/50 [00:23<01:26,  2.21s/it, epoch=3/10, avg_epoch_loss=628] 32%|███▏      | 16/50 [00:35<01:18,  2.30s/it, epoch=3/10, avg_epoch_loss=627] 42%|████▏     | 21/50 [00:47<01:06,  2.30s/it, epoch=3/10, avg_epoch_loss=626] 52%|█████▏    | 26/50 [00:58<00:54,  2.28s/it, epoch=3/10, avg_epoch_loss=624] 64%|██████▍   | 32/50 [01:10<00:39,  2.17s/it, epoch=3/10, avg_epoch_loss=622] 64%|██████▍   | 32/50 [01:21<00:39,  2.17s/it, epoch=3/10, avg_epoch_loss=621] 76%|███████▌  | 38/50 [01:22<00:25,  2.13s/it, epoch=3/10, avg_epoch_loss=621] 86%|████████▌ | 43/50 [01:33<00:14,  2.11s/it, epoch=3/10, avg_epoch_loss=620] 96%|█████████▌| 48/50 [01:45<00:04,  2.20s/it, epoch=3/10, avg_epoch_loss=619]100%|██████████| 50/50 [01:50<00:00,  2.20s/it, epoch=3/10, avg_epoch_loss=619]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:43,  2.31s/it, epoch=4/10, avg_epoch_loss=609] 10%|█         | 5/50 [00:21<01:43,  2.31s/it, epoch=4/10, avg_epoch_loss=607] 20%|██        | 10/50 [00:21<01:26,  2.16s/it, epoch=4/10, avg_epoch_loss=606] 32%|███▏      | 16/50 [00:33<01:09,  2.06s/it, epoch=4/10, avg_epoch_loss=606] 44%|████▍     | 22/50 [00:45<00:57,  2.04s/it, epoch=4/10, avg_epoch_loss=605] 56%|█████▌    | 28/50 [00:57<00:44,  2.03s/it, epoch=4/10, avg_epoch_loss=604] 66%|██████▌   | 33/50 [01:09<00:36,  2.13s/it, epoch=4/10, avg_epoch_loss=604] 66%|██████▌   | 33/50 [01:21<00:36,  2.13s/it, epoch=4/10, avg_epoch_loss=604] 76%|███████▌  | 38/50 [01:21<00:26,  2.22s/it, epoch=4/10, avg_epoch_loss=604] 86%|████████▌ | 43/50 [01:33<00:15,  2.27s/it, epoch=4/10, avg_epoch_loss=603] 96%|█████████▌| 48/50 [01:45<00:04,  2.31s/it, epoch=4/10, avg_epoch_loss=602]100%|██████████| 50/50 [01:50<00:00,  2.21s/it, epoch=4/10, avg_epoch_loss=602]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:48,  2.41s/it, epoch=5/10, avg_epoch_loss=596] 20%|██        | 10/50 [00:24<01:36,  2.40s/it, epoch=5/10, avg_epoch_loss=596] 30%|███       | 15/50 [00:36<01:24,  2.40s/it, epoch=5/10, avg_epoch_loss=596] 40%|████      | 20/50 [00:48<01:11,  2.40s/it, epoch=5/10, avg_epoch_loss=595] 50%|█████     | 25/50 [01:00<01:00,  2.41s/it, epoch=5/10, avg_epoch_loss=595] 50%|█████     | 25/50 [01:11<01:00,  2.41s/it, epoch=5/10, avg_epoch_loss=595] 60%|██████    | 30/50 [01:12<00:48,  2.40s/it, epoch=5/10, avg_epoch_loss=595] 70%|███████   | 35/50 [01:24<00:36,  2.40s/it, epoch=5/10, avg_epoch_loss=594] 80%|████████  | 40/50 [01:36<00:24,  2.40s/it, epoch=5/10, avg_epoch_loss=593] 90%|█████████ | 45/50 [01:47<00:11,  2.39s/it, epoch=5/10, avg_epoch_loss=593]100%|██████████| 50/50 [01:59<00:00,  2.39s/it, epoch=5/10, avg_epoch_loss=592]100%|██████████| 50/50 [01:59<00:00,  2.40s/it, epoch=5/10, avg_epoch_loss=592]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:46,  2.37s/it, epoch=6/10, avg_epoch_loss=586] 20%|██        | 10/50 [00:23<01:35,  2.40s/it, epoch=6/10, avg_epoch_loss=585] 30%|███       | 15/50 [00:35<01:24,  2.40s/it, epoch=6/10, avg_epoch_loss=584] 40%|████      | 20/50 [00:47<01:12,  2.40s/it, epoch=6/10, avg_epoch_loss=584] 50%|█████     | 25/50 [00:59<00:59,  2.39s/it, epoch=6/10, avg_epoch_loss=583] 50%|█████     | 25/50 [01:11<00:59,  2.39s/it, epoch=6/10, avg_epoch_loss=583] 60%|██████    | 30/50 [01:12<00:48,  2.41s/it, epoch=6/10, avg_epoch_loss=582] 70%|███████   | 35/50 [01:24<00:36,  2.41s/it, epoch=6/10, avg_epoch_loss=582] 80%|████████  | 40/50 [01:35<00:23,  2.34s/it, epoch=6/10, avg_epoch_loss=582] 90%|█████████ | 45/50 [01:46<00:11,  2.32s/it, epoch=6/10, avg_epoch_loss=582]100%|██████████| 50/50 [01:56<00:00,  2.33s/it, epoch=6/10, avg_epoch_loss=581]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:45,  2.35s/it, epoch=7/10, avg_epoch_loss=576] 20%|██        | 10/50 [00:23<01:33,  2.34s/it, epoch=7/10, avg_epoch_loss=578] 20%|██        | 10/50 [00:34<01:33,  2.34s/it, epoch=7/10, avg_epoch_loss=577] 30%|███       | 15/50 [00:35<01:23,  2.37s/it, epoch=7/10, avg_epoch_loss=577] 40%|████      | 20/50 [00:47<01:11,  2.39s/it, epoch=7/10, avg_epoch_loss=575] 50%|█████     | 25/50 [00:59<00:59,  2.39s/it, epoch=7/10, avg_epoch_loss=575] 60%|██████    | 30/50 [01:11<00:47,  2.39s/it, epoch=7/10, avg_epoch_loss=575] 70%|███████   | 35/50 [01:23<00:35,  2.39s/it, epoch=7/10, avg_epoch_loss=574] 70%|███████   | 35/50 [01:34<00:35,  2.39s/it, epoch=7/10, avg_epoch_loss=574] 80%|████████  | 40/50 [01:35<00:23,  2.40s/it, epoch=7/10, avg_epoch_loss=574] 90%|█████████ | 45/50 [01:47<00:11,  2.39s/it, epoch=7/10, avg_epoch_loss=574]100%|██████████| 50/50 [01:59<00:00,  2.40s/it, epoch=7/10, avg_epoch_loss=573]100%|██████████| 50/50 [01:59<00:00,  2.39s/it, epoch=7/10, avg_epoch_loss=573]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:47,  2.39s/it, epoch=8/10, avg_epoch_loss=566] 20%|██        | 10/50 [00:23<01:35,  2.39s/it, epoch=8/10, avg_epoch_loss=570] 20%|██        | 10/50 [00:35<01:35,  2.39s/it, epoch=8/10, avg_epoch_loss=568] 30%|███       | 15/50 [00:35<01:23,  2.39s/it, epoch=8/10, avg_epoch_loss=569] 40%|████      | 20/50 [00:47<01:10,  2.35s/it, epoch=8/10, avg_epoch_loss=569] 50%|█████     | 25/50 [00:59<00:59,  2.36s/it, epoch=8/10, avg_epoch_loss=570] 60%|██████    | 30/50 [01:11<00:47,  2.37s/it, epoch=8/10, avg_epoch_loss=569] 70%|███████   | 35/50 [01:23<00:35,  2.37s/it, epoch=8/10, avg_epoch_loss=568] 80%|████████  | 40/50 [01:34<00:23,  2.38s/it, epoch=8/10, avg_epoch_loss=567] 80%|████████  | 40/50 [01:45<00:23,  2.38s/it, epoch=8/10, avg_epoch_loss=567] 90%|█████████ | 45/50 [01:46<00:11,  2.37s/it, epoch=8/10, avg_epoch_loss=567]100%|██████████| 50/50 [01:58<00:00,  2.39s/it, epoch=8/10, avg_epoch_loss=566]100%|██████████| 50/50 [01:58<00:00,  2.38s/it, epoch=8/10, avg_epoch_loss=566]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:47,  2.39s/it, epoch=9/10, avg_epoch_loss=561] 20%|██        | 10/50 [00:23<01:33,  2.34s/it, epoch=9/10, avg_epoch_loss=562] 30%|███       | 15/50 [00:35<01:21,  2.33s/it, epoch=9/10, avg_epoch_loss=561] 30%|███       | 15/50 [00:46<01:21,  2.33s/it, epoch=9/10, avg_epoch_loss=561] 40%|████      | 20/50 [00:46<01:10,  2.34s/it, epoch=9/10, avg_epoch_loss=561] 50%|█████     | 25/50 [00:58<00:57,  2.32s/it, epoch=9/10, avg_epoch_loss=560] 60%|██████    | 30/50 [01:09<00:46,  2.31s/it, epoch=9/10, avg_epoch_loss=560] 70%|███████   | 35/50 [01:21<00:35,  2.33s/it, epoch=9/10, avg_epoch_loss=560] 80%|████████  | 40/50 [01:33<00:23,  2.36s/it, epoch=9/10, avg_epoch_loss=559] 90%|█████████ | 45/50 [01:45<00:11,  2.38s/it, epoch=9/10, avg_epoch_loss=560] 90%|█████████ | 45/50 [01:56<00:11,  2.38s/it, epoch=9/10, avg_epoch_loss=559]100%|██████████| 50/50 [01:57<00:00,  2.38s/it, epoch=9/10, avg_epoch_loss=559]100%|██████████| 50/50 [01:57<00:00,  2.36s/it, epoch=9/10, avg_epoch_loss=559]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:49,  2.43s/it, epoch=10/10, avg_epoch_loss=557] 20%|██        | 10/50 [00:24<01:37,  2.43s/it, epoch=10/10, avg_epoch_loss=557] 30%|███       | 15/50 [00:34<01:18,  2.26s/it, epoch=10/10, avg_epoch_loss=556] 42%|████▏     | 21/50 [00:45<01:00,  2.09s/it, epoch=10/10, avg_epoch_loss=556] 54%|█████▍    | 27/50 [00:56<00:45,  2.00s/it, epoch=10/10, avg_epoch_loss=554] 54%|█████▍    | 27/50 [01:08<00:45,  2.00s/it, epoch=10/10, avg_epoch_loss=554] 66%|██████▌   | 33/50 [01:10<00:35,  2.10s/it, epoch=10/10, avg_epoch_loss=554] 76%|███████▌  | 38/50 [01:20<00:25,  2.09s/it, epoch=10/10, avg_epoch_loss=553] 86%|████████▌ | 43/50 [01:33<00:15,  2.19s/it, epoch=10/10, avg_epoch_loss=553] 96%|█████████▌| 48/50 [01:45<00:04,  2.25s/it, epoch=10/10, avg_epoch_loss=553]100%|██████████| 50/50 [01:49<00:00,  2.20s/it, epoch=10/10, avg_epoch_loss=553]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1866.62it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.25it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.26it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.25it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.26it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.24it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.26it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.26it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.09it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.53it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.45it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+  0%|          | 0/50 [00:00<?, ?it/s]  8%|▊         | 4/50 [00:10<02:00,  2.61s/it, epoch=1/10, avg_epoch_loss=838] 18%|█▊        | 9/50 [00:22<01:40,  2.46s/it, epoch=1/10, avg_epoch_loss=824] 18%|█▊        | 9/50 [00:32<01:40,  2.46s/it, epoch=1/10, avg_epoch_loss=812] 28%|██▊       | 14/50 [00:34<01:26,  2.40s/it, epoch=1/10, avg_epoch_loss=808] 38%|███▊      | 19/50 [00:45<01:13,  2.38s/it, epoch=1/10, avg_epoch_loss=797] 48%|████▊     | 24/50 [00:57<01:01,  2.35s/it, epoch=1/10, avg_epoch_loss=783] 58%|█████▊    | 29/50 [01:09<00:49,  2.38s/it, epoch=1/10, avg_epoch_loss=775] 68%|██████▊   | 34/50 [01:21<00:38,  2.39s/it, epoch=1/10, avg_epoch_loss=767] 68%|██████▊   | 34/50 [01:32<00:38,  2.39s/it, epoch=1/10, avg_epoch_loss=763] 78%|███████▊  | 39/50 [01:33<00:26,  2.41s/it, epoch=1/10, avg_epoch_loss=761] 88%|████████▊ | 44/50 [01:46<00:14,  2.43s/it, epoch=1/10, avg_epoch_loss=754] 98%|█████████▊| 49/50 [01:57<00:02,  2.41s/it, epoch=1/10, avg_epoch_loss=748]100%|██████████| 50/50 [02:00<00:00,  2.41s/it, epoch=1/10, avg_epoch_loss=747]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:47,  2.39s/it, epoch=2/10, avg_epoch_loss=680] 10%|█         | 5/50 [00:22<01:47,  2.39s/it, epoch=2/10, avg_epoch_loss=677] 20%|██        | 10/50 [00:23<01:35,  2.39s/it, epoch=2/10, avg_epoch_loss=676] 30%|███       | 15/50 [00:35<01:23,  2.39s/it, epoch=2/10, avg_epoch_loss=674] 40%|████      | 20/50 [00:47<01:11,  2.39s/it, epoch=2/10, avg_epoch_loss=672] 50%|█████     | 25/50 [00:59<00:59,  2.40s/it, epoch=2/10, avg_epoch_loss=671] 60%|██████    | 30/50 [01:11<00:47,  2.38s/it, epoch=2/10, avg_epoch_loss=668] 60%|██████    | 30/50 [01:22<00:47,  2.38s/it, epoch=2/10, avg_epoch_loss=666] 70%|███████   | 35/50 [01:22<00:34,  2.33s/it, epoch=2/10, avg_epoch_loss=665] 80%|████████  | 40/50 [01:34<00:23,  2.32s/it, epoch=2/10, avg_epoch_loss=663] 90%|█████████ | 45/50 [01:44<00:11,  2.24s/it, epoch=2/10, avg_epoch_loss=660]100%|██████████| 50/50 [01:55<00:00,  2.23s/it, epoch=2/10, avg_epoch_loss=658]100%|██████████| 50/50 [01:55<00:00,  2.31s/it, epoch=2/10, avg_epoch_loss=658]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:50,  2.45s/it, epoch=3/10, avg_epoch_loss=633] 20%|██        | 10/50 [00:24<01:35,  2.39s/it, epoch=3/10, avg_epoch_loss=632] 30%|███       | 15/50 [00:35<01:23,  2.39s/it, epoch=3/10, avg_epoch_loss=633] 30%|███       | 15/50 [00:46<01:23,  2.39s/it, epoch=3/10, avg_epoch_loss=632] 40%|████      | 20/50 [00:47<01:11,  2.39s/it, epoch=3/10, avg_epoch_loss=632] 50%|█████     | 25/50 [00:59<00:59,  2.36s/it, epoch=3/10, avg_epoch_loss=630] 60%|██████    | 30/50 [01:11<00:47,  2.37s/it, epoch=3/10, avg_epoch_loss=628] 70%|███████   | 35/50 [01:23<00:35,  2.37s/it, epoch=3/10, avg_epoch_loss=627] 80%|████████  | 40/50 [01:35<00:23,  2.37s/it, epoch=3/10, avg_epoch_loss=626] 80%|████████  | 40/50 [01:46<00:23,  2.37s/it, epoch=3/10, avg_epoch_loss=625] 90%|█████████ | 45/50 [01:47<00:11,  2.38s/it, epoch=3/10, avg_epoch_loss=625]100%|██████████| 50/50 [01:58<00:00,  2.33s/it, epoch=3/10, avg_epoch_loss=624]100%|██████████| 50/50 [01:58<00:00,  2.36s/it, epoch=3/10, avg_epoch_loss=624]
+  0%|          | 0/50 [00:00<?, ?it/s] 12%|█▏        | 6/50 [00:11<01:25,  1.94s/it, epoch=4/10, avg_epoch_loss=610] 24%|██▍       | 12/50 [00:24<01:17,  2.04s/it, epoch=4/10, avg_epoch_loss=610] 34%|███▍      | 17/50 [00:36<01:12,  2.19s/it, epoch=4/10, avg_epoch_loss=609] 44%|████▍     | 22/50 [00:46<00:59,  2.14s/it, epoch=4/10, avg_epoch_loss=610] 54%|█████▍    | 27/50 [00:56<00:48,  2.09s/it, epoch=4/10, avg_epoch_loss=608] 64%|██████▍   | 32/50 [01:07<00:37,  2.10s/it, epoch=4/10, avg_epoch_loss=607] 64%|██████▍   | 32/50 [01:18<00:37,  2.10s/it, epoch=4/10, avg_epoch_loss=606] 74%|███████▍  | 37/50 [01:19<00:28,  2.21s/it, epoch=4/10, avg_epoch_loss=606] 86%|████████▌ | 43/50 [01:31<00:14,  2.14s/it, epoch=4/10, avg_epoch_loss=606] 96%|█████████▌| 48/50 [01:43<00:04,  2.22s/it, epoch=4/10, avg_epoch_loss=605]100%|██████████| 50/50 [01:48<00:00,  2.17s/it, epoch=4/10, avg_epoch_loss=604]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:46,  2.37s/it, epoch=5/10, avg_epoch_loss=593] 20%|██        | 10/50 [00:23<01:35,  2.38s/it, epoch=5/10, avg_epoch_loss=593] 30%|███       | 15/50 [00:35<01:23,  2.38s/it, epoch=5/10, avg_epoch_loss=593] 40%|████      | 20/50 [00:47<01:11,  2.38s/it, epoch=5/10, avg_epoch_loss=592] 50%|█████     | 25/50 [00:58<00:58,  2.34s/it, epoch=5/10, avg_epoch_loss=591] 50%|█████     | 25/50 [01:10<00:58,  2.34s/it, epoch=5/10, avg_epoch_loss=591] 60%|██████    | 30/50 [01:11<00:47,  2.37s/it, epoch=5/10, avg_epoch_loss=591] 70%|███████   | 35/50 [01:23<00:35,  2.38s/it, epoch=5/10, avg_epoch_loss=590] 80%|████████  | 40/50 [01:34<00:23,  2.32s/it, epoch=5/10, avg_epoch_loss=590] 90%|█████████ | 45/50 [01:45<00:11,  2.31s/it, epoch=5/10, avg_epoch_loss=590]100%|██████████| 50/50 [01:57<00:00,  2.33s/it, epoch=5/10, avg_epoch_loss=589]100%|██████████| 50/50 [01:57<00:00,  2.35s/it, epoch=5/10, avg_epoch_loss=589]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:48,  2.41s/it, epoch=6/10, avg_epoch_loss=586] 10%|█         | 5/50 [00:22<01:48,  2.41s/it, epoch=6/10, avg_epoch_loss=585] 20%|██        | 10/50 [00:23<01:35,  2.39s/it, epoch=6/10, avg_epoch_loss=586] 30%|███       | 15/50 [00:35<01:23,  2.38s/it, epoch=6/10, avg_epoch_loss=585] 40%|████      | 20/50 [00:47<01:11,  2.39s/it, epoch=6/10, avg_epoch_loss=584] 50%|█████     | 25/50 [00:59<00:59,  2.39s/it, epoch=6/10, avg_epoch_loss=583] 60%|██████    | 30/50 [01:12<00:48,  2.42s/it, epoch=6/10, avg_epoch_loss=583] 60%|██████    | 30/50 [01:22<00:48,  2.42s/it, epoch=6/10, avg_epoch_loss=582] 70%|███████   | 35/50 [01:24<00:36,  2.42s/it, epoch=6/10, avg_epoch_loss=582] 80%|████████  | 40/50 [01:36<00:24,  2.42s/it, epoch=6/10, avg_epoch_loss=583] 90%|█████████ | 45/50 [01:48<00:12,  2.42s/it, epoch=6/10, avg_epoch_loss=582]100%|██████████| 50/50 [02:00<00:00,  2.41s/it, epoch=6/10, avg_epoch_loss=581]100%|██████████| 50/50 [02:00<00:00,  2.41s/it, epoch=6/10, avg_epoch_loss=581]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:46,  2.38s/it, epoch=7/10, avg_epoch_loss=575] 10%|█         | 5/50 [00:22<01:46,  2.38s/it, epoch=7/10, avg_epoch_loss=575] 20%|██        | 10/50 [00:23<01:35,  2.38s/it, epoch=7/10, avg_epoch_loss=576] 30%|███       | 15/50 [00:34<01:18,  2.25s/it, epoch=7/10, avg_epoch_loss=576] 40%|████      | 20/50 [00:46<01:09,  2.32s/it, epoch=7/10, avg_epoch_loss=575] 50%|█████     | 25/50 [00:58<00:58,  2.36s/it, epoch=7/10, avg_epoch_loss=575] 60%|██████    | 30/50 [01:10<00:47,  2.36s/it, epoch=7/10, avg_epoch_loss=574] 60%|██████    | 30/50 [01:22<00:47,  2.36s/it, epoch=7/10, avg_epoch_loss=574] 70%|███████   | 35/50 [01:22<00:35,  2.38s/it, epoch=7/10, avg_epoch_loss=574] 80%|████████  | 40/50 [01:32<00:22,  2.28s/it, epoch=7/10, avg_epoch_loss=574] 90%|█████████ | 45/50 [01:44<00:11,  2.32s/it, epoch=7/10, avg_epoch_loss=574]100%|██████████| 50/50 [01:57<00:00,  2.36s/it, epoch=7/10, avg_epoch_loss=573]100%|██████████| 50/50 [01:57<00:00,  2.34s/it, epoch=7/10, avg_epoch_loss=573]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:50,  2.45s/it, epoch=8/10, avg_epoch_loss=569] 20%|██        | 10/50 [00:24<01:37,  2.44s/it, epoch=8/10, avg_epoch_loss=570] 20%|██        | 10/50 [00:35<01:37,  2.44s/it, epoch=8/10, avg_epoch_loss=570] 30%|███       | 15/50 [00:36<01:25,  2.46s/it, epoch=8/10, avg_epoch_loss=571] 40%|████      | 20/50 [00:48<01:13,  2.44s/it, epoch=8/10, avg_epoch_loss=569] 50%|█████     | 25/50 [01:00<00:59,  2.40s/it, epoch=8/10, avg_epoch_loss=568] 60%|██████    | 30/50 [01:11<00:46,  2.34s/it, epoch=8/10, avg_epoch_loss=567] 70%|███████   | 35/50 [01:22<00:34,  2.31s/it, epoch=8/10, avg_epoch_loss=566] 80%|████████  | 40/50 [01:34<00:23,  2.30s/it, epoch=8/10, avg_epoch_loss=566] 80%|████████  | 40/50 [01:45<00:23,  2.30s/it, epoch=8/10, avg_epoch_loss=566] 90%|█████████ | 45/50 [01:45<00:11,  2.28s/it, epoch=8/10, avg_epoch_loss=566]100%|██████████| 50/50 [01:56<00:00,  2.27s/it, epoch=8/10, avg_epoch_loss=565]100%|██████████| 50/50 [01:56<00:00,  2.33s/it, epoch=8/10, avg_epoch_loss=565]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:11<01:44,  2.31s/it, epoch=9/10, avg_epoch_loss=565] 20%|██        | 10/50 [00:23<01:33,  2.33s/it, epoch=9/10, avg_epoch_loss=562] 30%|███       | 15/50 [00:35<01:22,  2.36s/it, epoch=9/10, avg_epoch_loss=561] 40%|████      | 20/50 [00:46<01:10,  2.35s/it, epoch=9/10, avg_epoch_loss=560] 40%|████      | 20/50 [00:58<01:10,  2.35s/it, epoch=9/10, avg_epoch_loss=560] 50%|█████     | 25/50 [00:58<00:58,  2.34s/it, epoch=9/10, avg_epoch_loss=559] 60%|██████    | 30/50 [01:10<00:47,  2.36s/it, epoch=9/10, avg_epoch_loss=559] 70%|███████   | 35/50 [01:22<00:35,  2.37s/it, epoch=9/10, avg_epoch_loss=560] 80%|████████  | 40/50 [01:34<00:23,  2.36s/it, epoch=9/10, avg_epoch_loss=560] 90%|█████████ | 45/50 [01:46<00:11,  2.39s/it, epoch=9/10, avg_epoch_loss=560] 90%|█████████ | 45/50 [01:58<00:11,  2.39s/it, epoch=9/10, avg_epoch_loss=559]100%|██████████| 50/50 [01:58<00:00,  2.40s/it, epoch=9/10, avg_epoch_loss=559]100%|██████████| 50/50 [01:58<00:00,  2.37s/it, epoch=9/10, avg_epoch_loss=559]
+  0%|          | 0/50 [00:00<?, ?it/s] 10%|█         | 5/50 [00:12<01:51,  2.48s/it, epoch=10/10, avg_epoch_loss=555] 20%|██        | 10/50 [00:24<01:38,  2.46s/it, epoch=10/10, avg_epoch_loss=554] 30%|███       | 15/50 [00:36<01:25,  2.44s/it, epoch=10/10, avg_epoch_loss=553] 40%|████      | 20/50 [00:48<01:13,  2.44s/it, epoch=10/10, avg_epoch_loss=552] 40%|████      | 20/50 [00:59<01:13,  2.44s/it, epoch=10/10, avg_epoch_loss=551] 50%|█████     | 25/50 [01:01<01:00,  2.44s/it, epoch=10/10, avg_epoch_loss=551] 60%|██████    | 30/50 [01:13<00:48,  2.44s/it, epoch=10/10, avg_epoch_loss=551] 70%|███████   | 35/50 [01:25<00:36,  2.43s/it, epoch=10/10, avg_epoch_loss=550] 80%|████████  | 40/50 [01:37<00:24,  2.44s/it, epoch=10/10, avg_epoch_loss=550] 90%|█████████ | 45/50 [01:49<00:12,  2.43s/it, epoch=10/10, avg_epoch_loss=550] 90%|█████████ | 45/50 [01:59<00:12,  2.43s/it, epoch=10/10, avg_epoch_loss=550]100%|██████████| 50/50 [02:01<00:00,  2.42s/it, epoch=10/10, avg_epoch_loss=550]100%|██████████| 50/50 [02:01<00:00,  2.43s/it, epoch=10/10, avg_epoch_loss=550]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1697.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.51it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.58it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.57it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.58it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.52it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.27it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.29it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.39it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.51it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.39it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.28it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.35it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.36it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.33it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.30it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.39it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.53it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.39it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.32it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.39it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.39it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.37it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.50it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.51it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.34it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.31it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.38it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.41it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.47it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.46it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.40it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.43it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.48it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.42it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.49it/s]
+Running evaluation: 0it [00:00, ?it/s]Running evaluation: 1it [00:00,  1.44it/s]

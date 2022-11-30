@@ -21,7 +21,7 @@ This will run the Our modified DeepVAR method with coherent loss function 5 time
 Results:
 
 
-<<table style="width:60%">>
+<table style="width:50%"  height=300>
  <thead>
   <tr>
    <th>RESULTS ON ALL LEVELS</th>

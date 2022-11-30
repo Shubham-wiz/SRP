@@ -17,4 +17,4 @@ python experiments/run_experiment_with_best_hps.py --dataset dataset --method De
 where dataset is one of `{labour, traffic, tourism, wiki}` .
 
 
-This will run the selected method 5 times on the selected dataset with the hyperparameters used in the paper.
+This will run the DeepVAR method 5 times on the selected dataset with the best hyperparameters used in the paper [End-to-End Learning of Coherent Probabilistic Forecasts for Hierarchical Time Series](http://proceedings.mlr.press/v139/rangapuram21a.html)

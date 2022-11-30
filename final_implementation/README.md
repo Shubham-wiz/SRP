@@ -18,7 +18,7 @@ where dataset is one of `{labour, traffic, tourism, wiki}` .
 
 This will run the Our modified DeepVAR method with coherent loss function 5 times on the selected dataset with the best hyperparameters.
 
-Results:
+Results :
 
 
 <table style="width:50%"  height=300>
@@ -211,4 +211,118 @@ Results:
   </tr>
  </tbody>
 </table>
+
+<table style="width:50%"  height=300>
+ <thead>
+  <tr>
+   <th>CUMULATIVE LOSS </th>
+   <th></th>
+   <th></th>
+   <th></th>
+   <th></th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>Method</td>
+   <td>Labour</td>
+   <td>Traffic</td>
+   <td>Tourism</td>
+   <td>Wiki</td>
+  </tr>
+  <tr>
+   <td>ARIMA-NaiveBU</td>
+   <td>0.0453</td>
+   <td>0.0808</td>
+   <td>0.1138</td>
+   <td>0.3772</td>
+  </tr>
+  <tr>
+   <td>ETS-NaiveBU</td>
+   <td>0.0432</td>
+   <td>0.0665</td>
+   <td>0.1008</td>
+   <td>0.4673</td>
+  </tr>
+  <tr>
+   <td>ARIMA-MinT-shr</td>
+   <td>0.0467</td>
+   <td>0.077</td>
+   <td>0.1171</td>
+   <td>0.2467</td>
+  </tr>
+  <tr>
+   <td>ARIMA-MinT-01s</td>
+   <td>0.0463</td>
+   <td>0.1116</td>
+   <td>0.1195</td>
+   <td>0.2782</td>
+  </tr>
+  <tr>
+   <td>ETS-MinT-shr</td>
+   <td>0.0455</td>
+   <td>0.0963</td>
+   <td>0.1013</td>
+   <td>0.3622</td>
+  </tr>
+  <tr>
+   <td>ETS-MinT-01s</td>
+   <td>0.0459</td>
+   <td>0.111</td>
+   <td>0.1002</td>
+   <td>0.2702</td>
+  </tr>
+  <tr>
+   <td>ARIMA-ERM</td>
+   <td>0.0399</td>
+   <td>0.0466</td>
+   <td>0.5887</td>
+   <td>0.2206</td>
+  </tr>
+  <tr>
+   <td>ETS-ERM</td>
+   <td>0.0456</td>
+   <td>0.1027</td>
+   <td>2.3755</td>
+   <td>0.2217</td>
+  </tr>
+  <tr>
+   <td>PERMBU-MINT</td>
+   <td>0.0393+/-0.0002</td>
+   <td>0.0677+/-0.0061</td>
+   <td>0.0771+/-0.0001</td>
+   <td>0.2812+/-0.0240</td>
+  </tr>
+  <tr>
+   <td>Hier E2E </td>
+   <td>0.0340+/-0.0088</td>
+   <td>0.0376+/-0.0060</td>
+   <td>0.0834+/-0.0052</td>
+   <td>0.2038+/-0.0110</td>
+  </tr>
+  <tr>
+   <td>DeepVAR</td>
+   <td> 0.0382+/-0.0045</td>
+   <td>0.0400+/-0.0026</td>
+   <td>0.0925+/-0.0022</td>
+   <td>0.2294+/-0.0158</td>
+  </tr>
+  <tr>
+   <td>DeepVAR+</td>
+   <td>0.0433+/-0.0079</td>
+   <td>O.0434+/-0.0049</td>
+   <td>0.0958+/-0.0062</td>
+   <td>0.2439+/-0.0224</td>
+  </tr>
+  <tr>
+   <td>Our Model</td>
+   <td>*</td>
+   <td>0.0340+/-0.0006*</td>
+   <td>0.1091 +/- 0.0035</td>
+   <td>0.2288+/- 0.0198</td>
+  </tr>
+ </tbody>
+</table>
+
+
 

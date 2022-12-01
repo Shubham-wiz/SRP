@@ -33,56 +33,12 @@ Results :
    <th></th>
   </tr>
  </thead>
- <tbody>
-  <tr>
-   <td>Dataset</td>
-   <td>       Level</td>
-   <td>Our Model</td>
-   <td>Hier-E2E</td>
-   <td>DeepVAR</td>
-   <td>DeepVAR+</td>
-   <td>Best of Competing Methods</td>
-  </tr>
-  <tr>
-   <td>Labour</td>
-   <td>1</td>
-   <td>*</td>
-   <td>0.0311+/-0.0120</td>
-   <td>0.0352+/-0.0079</td>
-   <td>0.0416+/-0.0094</td>
-   <td>0.0406+/-0.0002 (PERMBU-MINT)</td>
-  </tr>
-  <tr>
-   <td></td>
-   <td>2</td>
-   <td>*</td>
-   <td>0.0336+/-0.0089</td>
-   <td>0.0374+/-0.0051</td>
-   <td>0.0437+/-0.0078</td>
-   <td>0.0389+/-0.0002 PERMBU-MINT)</td>
-  </tr>
-  <tr>
-   <td></td>
-   <td>3</td>
-   <td>*</td>
-   <td>0.0336+/-0.0082</td>
-   <td>0.0383+/-0.0038</td>
-   <td>0.0432+/-0.0076</td>
-   <td>0.0382+/-0.0002 (PERMBU-MINT)</td>
-  </tr>
-  <tr>
-   <td></td>
-   <td>4</td>
-   <td>*</td>
-   <td>0.0378+/-0.0060</td>
-   <td>0.0417+/-0.0038</td>
-   <td>0.0448+/-0.0066</td>
-   <td>0.0397+/-0.0003 (PERMBU-MINT)</td>
-  </tr>
+
+
   <tr>
    <td>Traffic</td>
    <td>1</td>
-   <td>0.0106+/-0.0028*</td>
+   <td>0.0106+/-0.0028</td>
    <td>0.0184+/-0.0091</td>
    <td>0.0225+/-0.0109</td>
    <td>0.0250+/-0.0082</td>
@@ -91,7 +47,7 @@ Results :
   <tr>
    <td></td>
    <td>2</td>
-   <td>0.0144+/-0.0002*</td>
+   <td>0.0144+/-0.0002</td>
    <td>0.0181+/-6.0086</td>
    <td>0.0204+/-0.0044</td>
    <td>0.0244+/-0.0063</td>

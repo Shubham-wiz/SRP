@@ -33,7 +33,15 @@ Results :
    <th></th>
   </tr>
  </thead>
-
+ <tr>
+   <td>Dataset</td>
+   <td>       Level</td>
+   <td>Our Model</td>
+   <td>Hier-E2E</td>
+   <td>DeepVAR</td>
+   <td>DeepVAR+</td>
+   <td>Best of Competing Methods</td>
+  </tr>
 
   <tr>
    <td>Traffic</td>

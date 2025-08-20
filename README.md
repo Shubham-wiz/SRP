@@ -40,7 +40,7 @@
 ## Raw_implementation
 
 #### _Model.py 
-- Consists of lstm based architecture with modified loss values, not yet generalised for all the data set, Different Ipynb files are pushed with the same functions inside to track and debug while creating a more generalised loss and Model.
+- Consists of LSTM based architecture with modified loss values, not yet generalised for all the data set, Different Ipynb files are pushed with the same functions inside to track and debug while creating a more generalised loss and Model.
 
 #### _utils.py
 - Consists of utility functions for  calculation of  error metrics and spliting batches while scaling the batch data
